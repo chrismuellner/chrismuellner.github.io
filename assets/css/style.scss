@@ -1,4 +1,9 @@
 ---
+
 ---
 
 @import "{{ site.theme }}";
+
+span.date {
+    float: right;
+}
