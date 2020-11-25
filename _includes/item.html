@@ -1,10 +1,14 @@
-<h4>{{ include.item.title }}</h4>
-<h6>{{ include.item.location }}</h6>
-<span class="date">
-    {% if include.item.to %}
-        {{ include.item.from }} - {{ include.item.to }}
-    {% else %}
-        since {{ include.item.from }}
-    {% endif %}
-</span>
-<p>{{ include.item.description }}</p>
+<div class="item">
+    <div class="top">
+        <h3 class="title">{{ include.item.title }}</h3>
+        <div class="date">
+            {% if include.item.to %}
+                {{ include.item.from }} - {{ include.item.to }}
+            {% else %}
+                since {{ include.item.from }}
+            {% endif %}
+        </div>
+    </div>
+    <h4 class="location">{{ include.item.location }}</h4>
+    <p class="description">{{ include.item.description }}</p>
+</div>

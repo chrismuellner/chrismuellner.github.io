@@ -1,9 +1,27 @@
 ---
-
 ---
 
 @import "{{ site.theme }}";
 
-span.date {
-    float: right;
+.item {
+    margin-top: 10px;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0;
+    }
+
+    .title {
+        margin-bottom: 0;
+    }
+
+    .location {
+        margin: 0 0 0.5rem 0;
+        font-size: 0.9rem;
+    }
+
+    .description {
+        margin-top: 0;
+    }
 }
