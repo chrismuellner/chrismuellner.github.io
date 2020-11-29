@@ -1,0 +1,6 @@
+<div class="experience">
+    <h2>Experience</h2>
+    {% for experience in site.data.experience %}
+        {% include item.html item=experience %}
+    {% endfor %}
+</div>

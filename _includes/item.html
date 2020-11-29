@@ -2,13 +2,11 @@
     <div class="top">
         <h3 class="title">{{ include.item.title }}</h3>
         <div class="date">
-            {% if include.item.to %}
-                {{ include.item.from }} - {{ include.item.to }}
-            {% else %}
-                since {{ include.item.from }}
-            {% endif %}
+            {{ include.item.from }} - {{ include.item.to | default: 'Present' }}
         </div>
     </div>
     <h4 class="location">{{ include.item.location }}</h4>
-    <p class="description">{{ include.item.description }}</p>
+    <div class="description">
+        {{ include.item.description | markdownify }}
+    </div>
 </div>
