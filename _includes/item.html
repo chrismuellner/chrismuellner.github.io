@@ -1,11 +1,11 @@
 <div class="item">
     <div class="top">
-        <h3 class="title">{{ include.item.title }}</h3>
+        <h5 class="title">{{ include.item.title }}</h5>
         <div class="date">
             {{ include.item.from }} - {{ include.item.to | default: 'Present' }}
         </div>
     </div>
-    <h4 class="location">{{ include.item.location }}</h4>
+    <h6 class="location text-muted">{{ include.item.location }}</h6>
     <div class="description">
         {{ include.item.description | markdownify }}
     </div>

@@ -9,16 +9,26 @@
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url }}">
 </head>
 
 <body>
     {%- include header.html -%}
-    <main id="content" class="main-content" role="main">
+    <main id="content" class="container" role="main">
         {%- if site.data.experience.size > 0 -%}
             {%- include experience.html -%}
         {%- endif -%}
+
         {%- if site.data.education.size > 0 -%}
             {%- include education.html -%}
+        {%- endif -%}
+
+        {%- if site.data.skill.size > 0 -%}
+            {%- include skill.html -%}
+        {%- endif -%}
+        
+        {%- if site.data.project.size > 0 -%}
+            {%- include project.html -%}
         {%- endif -%}
     </main>
     {%- include footer.html -%}

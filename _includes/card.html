@@ -1,0 +1,17 @@
+<div class="card border-0 shadow mb-3 bg-white">
+    <div class="card-body">
+        <h5 class="card-title">{{ include.item.title }}</h5>
+        <h6 class="card-subtitle text-muted">{{ include.item.subtitle }}</h6>
+        <div class="technologies">
+            {% for technology in include.item.technologies %}
+            <span class="badge badge-secondary">{{ technology }}</span>
+            {% endfor %}
+        </div>
+        <p class="card-text">
+            {{ include.item.description | markdownify }}
+        </p>
+        {%- if include.item.url -%}
+            <a href="{{ include.item.url }}">Github</a>
+        {%- endif -%}
+    </div>
+</div>
