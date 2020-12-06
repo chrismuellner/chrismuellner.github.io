@@ -1,6 +1,7 @@
 - title: KmLog
   subtitle: personal project
   url: https://github.com/chrismuellner/km-log
+  year: 2020
   technologies: 
     - c#
     - blazor
@@ -11,6 +12,7 @@
 
 - title: Triality
   subtitle: exhibition project
+  year: 2019
   technologies: 
     - c#
     - unity
@@ -20,6 +22,7 @@
 
 - title: Maintenance assistance app
   subtitle: university student project (Master)
+  year: 2019
   technologies: 
     - c#
     - unity
@@ -30,6 +33,7 @@
 
 - title: Delivery support app
   subtitle: university student project (Bachelor)
+  year: 2017
   technologies: 
     - java
     - android

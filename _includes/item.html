@@ -1,18 +1,28 @@
-<div class="item">
-    <div class="top">
-        <h5 class="title">{{ include.item.title }}</h5>
-        <div class="date">
-            {{ include.item.from }} - {{ include.item.to | default: 'Present' }}
+<div class="col item">
+    <div class="row">
+        <h5 class="col mr-auto pl-0">{{ include.item.title }}</h5>
+        <div class="col-auto">
+            {% if include.item.year %}
+                {{ include.item.year }}
+            {% else %}
+                {{ include.item.from }} - {{ include.item.to | default: 'Present' }}
+            {% endif %}
         </div>
     </div>
     {% if include.item.company %}
-    <a class="h6 company" href="{{ include.item.company.url }}">{{ include.item.company.name }}</a>
+    <div class="row">
+        <a class="h6  mb-0 company" href="{{ include.item.company.url }}">{{ include.item.company.name }}</a>
+    </div>
     {% endif %}
-    <h6 class="location text-muted">{{ include.item.location }}</h6>
+    <div class="row">
+        <h6 class="location text-muted">{{ include.item.location }}</h6>
+    </div>
     {% if include.item.technologies %}
+    <div class="row">
         {% include badges.html item=include.item.technologies %}
+    </div>
     {% endif %}
-    <div class="description">
+    <div class="row description">
         {{ include.item.description | markdownify }}
     </div>
 </div>

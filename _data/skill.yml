@@ -1,4 +1,4 @@
-- category: General
+- category: Technologies
   skills:
     - C#
     - .NET Framework
@@ -21,6 +21,9 @@
   skills:
     - docker
     - git
+    - linux
+    - LaTeX
+    - Powershell
 
 - category: Languages
   skills:

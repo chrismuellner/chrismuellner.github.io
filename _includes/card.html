@@ -1,7 +1,12 @@
 <div class="card border-0 shadow mb-3 bg-white">
     <div class="card-body">
-        <h5 class="card-title">{{ include.item.title }}</h5>
-        <h6 class="card-subtitle text-muted">{{ include.item.subtitle }}</h6>
+        <h5 class="card-title">
+            {{ include.item.title }}
+        </h5>
+        <h6 class="card-subtitle text-muted">
+            {{ include.item.subtitle }}
+            <span class="badge badge-info">{{ include.item.year }}</span>
+        </h6>
         <div class="technologies">
             {% include badges.html item=include.item.technologies %}
         </div>
