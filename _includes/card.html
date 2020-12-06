@@ -3,9 +3,7 @@
         <h5 class="card-title">{{ include.item.title }}</h5>
         <h6 class="card-subtitle text-muted">{{ include.item.subtitle }}</h6>
         <div class="technologies">
-            {% for technology in include.item.technologies %}
-            <span class="badge badge-secondary">{{ technology }}</span>
-            {% endfor %}
+            {% include badges.html item=include.item.technologies %}
         </div>
         <p class="card-text">
             {{ include.item.description | markdownify }}

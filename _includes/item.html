@@ -5,7 +5,13 @@
             {{ include.item.from }} - {{ include.item.to | default: 'Present' }}
         </div>
     </div>
+    {% if include.item.company %}
+    <a class="h6 company" href="{{ include.item.company.url }}">{{ include.item.company.name }}</a>
+    {% endif %}
     <h6 class="location text-muted">{{ include.item.location }}</h6>
+    {% if include.item.technologies %}
+        {% include badges.html item=include.item.technologies %}
+    {% endif %}
     <div class="description">
         {{ include.item.description | markdownify }}
     </div>

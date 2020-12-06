@@ -1,0 +1,38 @@
+- title: KmLog
+  subtitle: personal project
+  url: https://github.com/chrismuellner/km-log
+  technologies: 
+    - c#
+    - blazor
+  description: |
+    Started project as an opportunity to learn Blazor and try out the latest .NET features.
+    Implemented logging of distance and price per tank refuel or service and allow analyzing of history for different cars.
+    Forms are validated via Fluent Validation and users authenticated by their Microsoft account.
+
+- title: Triality
+  subtitle: exhibition project
+  technologies: 
+    - c#
+    - unity
+  description: |
+    Helped create a mixed-reality puzzle game for [Ars Electronica](https://ars.electronica.art/outofthebox/en/triality/) in collaboration with university of arts in Linz.
+    In the game 3 participants had to work together to solve various riddles, only being able to use a single sense (hearing, sight, touch) by using a vr headset, headphones and a replica of the virtual environment respectively.
+
+- title: Maintenance assistance app
+  subtitle: university student project (Master)
+  technologies: 
+    - c#
+    - unity
+  description: |
+    Utilized [Vuforia Engine](https://www.ptc.com/en/products/vuforia/vuforia-engine) markers to implement an augmented reality app for [Sprecher Automation](https://www.sprecher-automation.com) in Unity.
+    Markers are tracked by scanning a qr code near the object, which overlays the areas that require repair with additional information relative to the marker's position.
+    Supports technical servicing of power plant equipment by highlighting problem zones on the user's devices and improving error recognition.
+
+- title: Delivery support app
+  subtitle: university student project (Bachelor)
+  technologies: 
+    - java
+    - android
+  description: |
+    Developed an android app in cooperation with [ITPRO](https://www.itpro.at) to assist delivery drivers for [Mohrenbrauerei](https://www.mohrenbrauerei.at).
+    Communicate with ERP system to receive optimized route and list of delivery items to show information to delivery drivers and allow them to manage their inventory on the route.

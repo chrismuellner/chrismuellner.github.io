@@ -1,0 +1,32 @@
+- title: Software Engineer
+  from: Nov 2018
+  company: 
+    name: COUNT IT Group
+    url: https://www.countit.at/
+  location: Hagenberg im Mühlkreis, Austria
+  technologies:
+    - c#
+    - wpf
+    - xamarin
+    - entity framework
+    - angular
+  description: |
+    Working on multiple business applications using .NET as backend and WPF, Xamarin or Angular for the Frontend.
+
+
+    
+- title: Internship
+  from: May 2018
+  to: Jul 2018
+  company: 
+    name: BRP-Rotax GmbH
+    url: https://www.rotax.com
+  location: Gunskirchen, Austria
+  technologies:
+    - c#
+    - abap
+    - neptune
+  description: |
+    Implemented the theoretical Bachelor thesis by organizing data from engine testbenches and storing it in a data warehouse.
+    Combined aggregated data with master data from SAP to display graphs of metrics (e.g. uptime, speed) over time via an [SAP Fiori](https://www.sap.com/products/fiori.html) App developed in [Neptune](https://www.neptune-software.com/).
+    Improved daily meetings by creating an overview of the metrics and showing incidents per testbench.

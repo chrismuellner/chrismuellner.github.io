@@ -1,0 +1,28 @@
+- category: General
+  skills:
+    - C#
+    - .NET Framework
+    - .NET Core
+    - WPF
+    - Xamarin
+    - Entity Framework
+    - SQL
+    - Angular
+    - Typescript
+    - Java
+    - Python
+    - Blazor
+    - html
+    - css
+    - jekyll
+    - graphql
+
+- category: Tools
+  skills:
+    - docker
+    - git
+
+- category: Languages
+  skills:
+    - German
+    - English
