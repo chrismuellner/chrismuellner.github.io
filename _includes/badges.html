@@ -1,3 +1,10 @@
+{% case include.category %}
+    {% when 'info' %}
+        {% assign badge-class = "badge-info" %}
+    {% else %}
+        {% assign badge-class = "badge-secondary" %}
+{% endcase %}
+
 {% for badge in include.item %}
-    <span class="badge badge-secondary mr-1">{{ badge }}</span>
+    <span class="badge {{ badge-class }}">{{ badge }}</span>
 {% endfor %}

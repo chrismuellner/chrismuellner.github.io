@@ -1,9 +1,9 @@
 <div class="col item">
-    <div class="row">
-        <h5 class="col mr-auto pl-0">{{ include.item.title }}</h5>
-        <div class="col-auto">
+    <div class="row d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ include.item.title }}</h5>
+        <div>
             {% if include.item.year %}
-                {{ include.item.year }}
+                {% include badges.html item=include.item.year category="info" %}
             {% else %}
                 {{ include.item.from }} - {{ include.item.to | default: 'Present' }}
             {% endif %}
@@ -11,7 +11,7 @@
     </div>
     {% if include.item.company %}
     <div class="row">
-        <a class="h6  mb-0 company" href="{{ include.item.company.url }}">{{ include.item.company.name }}</a>
+        <a class="h6 mb-0 company" href="{{ include.item.company.url }}">{{ include.item.company.name }}</a>
     </div>
     {% endif %}
     <div class="row">
@@ -19,10 +19,17 @@
     </div>
     {% if include.item.technologies %}
     <div class="row">
-        {% include badges.html item=include.item.technologies %}
+        <h6>
+            {% include badges.html item=include.item.technologies %}
+        </h6>
     </div>
     {% endif %}
     <div class="row description">
         {{ include.item.description | markdownify }}
     </div>
+    {% if include.item.thesis %}
+    <div class="row">
+        <em>Thesis: {{ include.item.thesis }}</em>
+    </div>
+    {% endif %}
 </div>

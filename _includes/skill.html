@@ -1,9 +1,15 @@
 <div class="section">
     <h1 class="display-4">Skills</h1>
-    {% for category in site.data.skill %}
-    <h5>{{ category.category }}</h5>
-    <h5>
-        {% include badges.html item=category.skills %}
-    </h5>
-    {% endfor %}
+    <div class="card-columns">
+        {% for category in site.data.skill %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ category.category }}</h5>
+                <h5 class="card-subtitle">
+                    {% include badges.html item=category.skills %}
+                </h5>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>

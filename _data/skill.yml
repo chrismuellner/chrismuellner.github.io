@@ -1,31 +1,59 @@
-- category: Technologies
+- category: Programming Languages
   skills:
     - C#
-    - .NET Framework
+    - Typescript
+    - Javascript
+    - SQL
+    - HTML
+    - CSS
+    - Python
+    - Java
+
+- category: Backend
+  skills:
     - .NET Core
+    - .NET Framework
+    - Entity Framework
+    - REST
+    - OpenAPI
+    - Node.js
+    - RabbitMQ
+    - GraphQL
+
+- category: Web
+  skills:
+    - Angular
+    - Blazor
+    - Jekyll
+
+- category: Native Frontend
+  skills:
     - WPF
     - Xamarin
-    - Entity Framework
-    - SQL
-    - Angular
-    - Typescript
-    - Java
-    - Python
-    - Blazor
-    - html
-    - css
-    - jekyll
-    - graphql
+
+- category: IDEs
+  skills:
+    - Visual Studio
+    - Visual Studio Code
+    - IntelliJ IDEA
 
 - category: Tools
   skills:
-    - docker
-    - git
-    - linux
-    - LaTeX
+    - Git
+    - Bash
     - Powershell
+    - LaTeX
+    - Markdown
 
-- category: Languages
+- category: Infrastructure
   skills:
-    - German
-    - English
+    - Docker
+    - Docker Compose
+    - Linux
+    - Azure
+    - Github Actions
+    - Raspberry Pi
+    - traefik
+    - Let's Encrypt
+    - Digital Ocean
+    - Azure DevOps

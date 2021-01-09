@@ -1,4 +1,4 @@
-<div class="card border-0 shadow mb-3 bg-white">
+<div class="card border-0 shadow-sm mb-3 bg-white">
     <div class="card-body">
         <h5 class="card-title">
             {{ include.item.title }}
@@ -10,11 +10,11 @@
         <div class="technologies">
             {% include badges.html item=include.item.technologies %}
         </div>
-        <p class="card-text">
-            {{ include.item.description | markdownify }}
-        </p>
-        {%- if include.item.url -%}
-            <a href="{{ include.item.url }}">Github</a>
-        {%- endif -%}
+        {{ include.item.description | markdownify }}
+        {% if include.item.github_url %}
+            <a href="{{ include.item.github_url }}">
+                <i class="fab fa-github fa-lg"></i> Github
+            </a>
+        {% endif %}
     </div>
 </div>

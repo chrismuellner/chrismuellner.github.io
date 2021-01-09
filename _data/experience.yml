@@ -5,16 +5,14 @@
     url: https://www.countit.at/
   location: Hagenberg im Mühlkreis, Austria
   technologies:
-    - c#
-    - wpf
-    - xamarin
-    - entity framework
-    - angular
+    - C#
+    - WPF
+    - Xamarin
+    - Entity Framework
+    - Angular
   description: |
-    Working on multiple business applications using .NET as backend and WPF, Xamarin or Angular for the Frontend.
+     Worked on multiple projects in small to medium sized teams using C# and Entity Framework for the backend with frontends in Angular, WPF and Xamarin.
 
-
-    
 - title: Internship
   from: May 2018
   to: Jul 2018
@@ -23,9 +21,9 @@
     url: https://www.rotax.com
   location: Gunskirchen, Austria
   technologies:
-    - c#
-    - abap
-    - neptune
+    - C#
+    - ABAP
+    - Neptune
   description: |
     Implemented the theoretical Bachelor thesis by organizing data from engine testbenches and storing it in a data warehouse.
     Combined aggregated data with master data from SAP to display graphs of metrics (e.g. uptime, speed) over time via an [SAP Fiori](https://www.sap.com/products/fiori.html) App developed in [Neptune](https://www.neptune-software.com/).

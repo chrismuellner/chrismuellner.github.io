@@ -2,6 +2,7 @@
   from: 2018
   to: 2020
   location: University of Applied Sciences Upper Austria - Campus Hagenberg
+  thesis: Genetische Programmierung von Heuristiken für Symbolische Regression
   description: |
     Cloud Computing, Service-Engineering, Microservice-Architecture, Data Mining & Machine Learning, Formal Languages, Compiler Construction and Tooling, Data Warehousing, OLAP and Business Intelligence, Heuristic and Evolutionary Algorithms, Generative Programming, Security and Fault Tolerance in Software Systems, Artificial Intelligence, Model-driven Development
 
@@ -9,5 +10,6 @@
   from: 2015
   to: 2018
   location: University of Applied Sciences Upper Austria - Campus Hagenberg
+  thesis: Anzeige und Analyse des Motorprüfstandstatus auf mobilen Endgeräten
   description: |
     Component Based Development, Object-Oriented Programming, Advanced Algorithms and Data Structures, Software Development with Enterprise Technologies, Web Architectures and Frameworks, Software Design Patterns, Database Systems and Designs, Network Technology and Security, Operating Systems, Open Source in Software Development, Mathematics (Algebra, Statistics)
