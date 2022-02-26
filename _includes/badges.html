@@ -1,8 +1,8 @@
 {% case include.category %}
     {% when 'info' %}
-        {% assign badge-class = "badge-info" %}
+        {% assign badge-class = "bg-info text-dark" %}
     {% else %}
-        {% assign badge-class = "badge-secondary" %}
+        {% assign badge-class = "bg-secondary" %}
 {% endcase %}
 
 {% for badge in include.item %}

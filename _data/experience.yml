@@ -1,8 +1,24 @@
 - title: Software Engineer
+  from: June 2021
+  company: 
+    name: Dynatrace
+    url: https://www.dynatrace.com
+    # todo: icon?
+  location: Linz, Austria
+  technologies:
+    - Go
+    - Kubernetes
+    - operator-sdk
+    - Helm
+  description: |
+     Developing Dynatrace Operator on [Github](https://github.com/dynatrace/dynatrace-operator) that simplifies deployment of monitoring components on Kubernetes clusters.
+
+- title: Software Engineer
   from: Nov 2018
+  to: May 2021
   company: 
     name: COUNT IT Group
-    url: https://www.countit.at/
+    url: https://www.countit.at
   location: Hagenberg im Mühlkreis, Austria
   technologies:
     - C#

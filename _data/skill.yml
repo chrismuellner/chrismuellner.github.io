@@ -1,30 +1,23 @@
 - category: Programming Languages
   skills:
+    - Go # todo: icon
     - C#
-    - Typescript
-    - Javascript
-    - SQL
-    - HTML
-    - CSS
     - Python
-    - Java
+    - Typescript
+    - SQL
+    - HTML/CSS
 
-- category: Backend
+- category: Frameworks
   skills:
-    - .NET Core
-    - .NET Framework
-    - Entity Framework
-    - REST
+    - operator-sdk
     - OpenAPI
-    - Node.js
-    - RabbitMQ
-    - GraphQL
+    - REST
 
 - category: Web
   skills:
+    - Jekyll
     - Angular
     - Blazor
-    - Jekyll
 
 - category: Native Frontend
   skills:
@@ -33,27 +26,22 @@
 
 - category: IDEs
   skills:
-    - Visual Studio
+    - GoLand
     - Visual Studio Code
     - IntelliJ IDEA
+    - Visual Studio
 
 - category: Tools
   skills:
+    - Jira
+    - Markdown
     - Git
     - Bash
-    - Powershell
-    - LaTeX
-    - Markdown
 
 - category: Infrastructure
   skills:
+    - Kubernetes
+    - Helm Charts
+    - Github Actions
     - Docker
     - Docker Compose
-    - Linux
-    - Azure
-    - Github Actions
-    - Raspberry Pi
-    - traefik
-    - Let's Encrypt
-    - Digital Ocean
-    - Azure DevOps
