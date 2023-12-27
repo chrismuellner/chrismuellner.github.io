@@ -4,7 +4,7 @@
     "eleventy": "npx @11ty/eleventy --serve ",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
     "css": "npx tailwindcss -i src/styles/tailwind.css -c src/styles/tailwind.config.js -o _site/style.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true @11ty/eleventy && NODE_ENV=production npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css --minify"
+    "build": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy && NODE_ENV=production npx tailwindcss -i src/styles/tailwind.css -c src/styles/tailwind.config.js -o _site/style.css --minify"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
