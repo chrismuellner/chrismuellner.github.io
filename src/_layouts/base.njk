@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>    
+    <link rel="canonical" href="{{ config.url }}{{ page.url }}">
+    <link rel="stylesheet" type="text/css" href="/style.css?v={% version %}" />
+
+    <title>{% if title and title != 'Home' %}{{title}} - {% endif %}{{ config.siteTitle }}</title>
+
+    <!-- Icons -->
+    {# <link rel="shortcut icon" type="image/png" href="/images/x16-favicon.png" sizes="16x16" />
+    <link rel="shortcut icon" type="image/png" href="/images/x32-favicon.png" sizes="32x32" />
+    <link rel="shortcut icon" type="image/png" href="/images/x64-favicon.png" sizes="64x64" />
+    <link rel="shortcut icon" type="image/png" href="/images/x256-favicon.png" sizes="256x256" />
+    <link rel="apple-touch-icon" type="image/png" href="/images/x256-favicon.png" /> #}
+  </head>
+  <body>
+    <header>
+    </header> 
+    <div>
+        {{ content | safe }}
+    </div>
+
+    <footer class="mt-0 text-center text-base text-gray-500">
+      <p>&copy; {{ config.author }} - <a href="{{ config.url }}">{{ config.siteTitle }}</a> | <a href="/sitemap.xml" class="text-indigo-500">Site Map</a></p>
+    </footer>
+  </body>
+</html>
