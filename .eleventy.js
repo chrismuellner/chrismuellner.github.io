@@ -11,6 +11,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode('version', function () {
     return now
   })
+  // human readable date
+  eleventyConfig.addFilter("readableDate", (dateObj) => dateObj.toISOString());
 
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents))
 
