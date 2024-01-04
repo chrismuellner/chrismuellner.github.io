@@ -18,5 +18,3 @@ order: 1
 <div class="container max-w-lg mx-auto text-xl text-center">
 	content
 </div>
-
-{% include "navigation.njk" %}
