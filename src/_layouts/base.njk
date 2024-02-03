@@ -17,34 +17,33 @@
     <header class="flex items-center w-full">
       <div class="container mx-auto">
         <div class="relative flex items-center justify-between -mx-4">
-          <div class="flex items-center justify-between w-full px-4
-            shadow-lg rounded-xl m-8
-            bg-gradient-to-r from-green-500 dark:from-purple-500 to-green-50">
+          <div class="flex items-center justify-between w-full px-4 m-8">
             <div>
-                <nav
-                  class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent">
-                  <ul class="block lg:flex">
-                      {%- for item in collections.page -%}
-                      <li>
-                        <a href="{{ item.url }}" 
-                          class="flex py-2 lg:ml-12 lg:inline-flex text-lg font-bold text-body-color hover:text-dark 
-                            dark:text-dark-6 dark:hover:text-white">{{ item.data.title }}</a>
-                      </li>
-                      {%- endfor -%}
-                  </ul>
-                </nav>
+              <nav class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent">
+                <ul class="block lg:flex">
+                  {%- for item in collections.page -%}
+                  <li>
+                    <a href="{{ item.url }}" 
+                      class="flex py-2 lg:ml-12 lg:inline-flex text-lg font-bold 
+                        hover:text-dark dark:text-white">
+                      {{ item.data.title }}
+                    </a>
+                  </li>
+                  {%- endfor -%}
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <main class="text-slate-500 dark:text-slate-400"">
-        {{ content | safe }}
+    <main class="text-center text-slate-500 dark:text-white">
+      {{ content | safe }}
     </main>
 
     <footer class="mt-0 text-center text-base text-slate-500 dark:text-slate-400">
-      <p>&copy; {{ config.author }} - <a href="{{ config.url }}">{{ config.siteTitle }}</a> | <a href="/sitemap.xml" class="text-indigo-500">Site Map</a></p>
+      <p>&copy; {{ config.author }}</p>
     </footer>
   </body>
 </html>
