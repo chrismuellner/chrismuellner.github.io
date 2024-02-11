@@ -1,5 +1,7 @@
 const yaml = require("js-yaml")
 const now = String(Date.now())
+const markdownIt = require("markdown-it");
+const markdownItClass = require('@toycode/markdown-it-class');
 
 module.exports = function (eleventyConfig) {
   
@@ -15,6 +17,25 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("readableDate", (dateObj) => dateObj.toISOString());
 
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents))
+
+  // markdown configuration
+  const md = new markdownIt({
+    linkify: true,
+    html: true,
+    code: false
+  });
+
+  // reference: https://matthewtole.com/articles/eleventy-markdown-tailwind/
+  const mapping = {
+    a: ["underline", "hover:decoration-pink-500"],
+  };
+  md.use(markdownItClass, mapping);
+
+  // reference: https://www.aleksandrhovhannisyan.com/blog/custom-markdown-components-in-11ty/
+  eleventyConfig.addPairedShortcode("markdown", (content) => {
+    return md.render(content);
+  });
+  eleventyConfig.setLibrary('md', md);
 
   return {
     markdownTemplateEngine: "njk",
