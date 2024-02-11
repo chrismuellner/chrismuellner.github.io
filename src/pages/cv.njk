@@ -11,9 +11,14 @@ order: 1
   <ul>
   {%- for experience in cv.experiences -%}
     <li>{{ experience.title }} at 
-      <a href="{{ experience.company.url }}" class="hover:underline">
+      <a href="{{ experience.company.url }}" class="underline hover:decoration-pink-500">
         {{ experience.company.name }}
       </a>
+      <p>
+        {% markdown %}
+        {{ experience.description }}
+        {% endmarkdown %}
+      </p>
     </li>
   {%- endfor -%}
   </ul>
