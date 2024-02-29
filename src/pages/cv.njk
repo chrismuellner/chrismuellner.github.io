@@ -1,19 +1,27 @@
 ---
-title: CV
+title: resume
 layout: default
 tags: page
 modified: 2023-12-27 00:00:00
 order: 1
 ---
 
-<div>
-  <h2 class="text-4xl font-extrabold dark:text-white">Experience</h2>
+<p class="my-8 text-center italic">
+Software Engineer &amp; Product Owner at Dynatrace
+</p>
+
+<section>
+  <h2 class="text-xl font-extrabold">Experience</h2>
   <ul>
   {%- for experience in cv.experiences -%}
-    <li>{{ experience.title }} at 
-      <a href="{{ experience.company.url }}" class="underline hover:decoration-pink-500">
-        {{ experience.company.name }}
-      </a>
+    <li class="mb-8">
+      <span class="italic">
+        {{ experience.title }}
+        at
+        <a href="{{ experience.company.url }}" class="underline hover:decoration-pink-500">
+          {{ experience.company.name }}
+        </a>
+      </span>
       <p>
         {% markdown %}
         {{ experience.description }}
@@ -22,13 +30,24 @@ order: 1
     </li>
   {%- endfor -%}
   </ul>
-</div>
+</section>
 
-<div>
-  <h2 class="text-4xl font-extrabold dark:text-white">Education</h2>
+<section>
+  <h2 class="text-xl font-extrabold">Education</h2>
   <ul>
   {%- for education in cv.educations -%}
-    <li>{{ education.title }}</li>
+    <li class="mb-8">
+      <span class="italic">
+        {{ education.title }}
+        at
+        {{ education.location }}
+      </span>
+      {# <p>
+        {% markdown %}
+        {{ education.description }}
+        {% endmarkdown %}
+      </p> #}
+    </li>
   {%- endfor -%}
   </ul>
-</div>
+</section>
