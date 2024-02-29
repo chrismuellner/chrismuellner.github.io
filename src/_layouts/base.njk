@@ -13,32 +13,21 @@
     <link rel="shortcut icon" type="image/png" href="/images/x256-favicon.png" sizes="256x256" />
     <link rel="apple-touch-icon" type="image/png" href="/images/x256-favicon.png" /> #}
   </head>
-  <body class="bg-white dark:bg-slate-800">
-    <header class="flex items-center w-full">
-      <div class="container mx-auto">
-        <div class="relative flex items-center justify-between mx-4">
-          <div class="flex items-center justify-between w-full px-4 m-8">
-            <div>
-              <nav class="absolute right-4 top-full w-full max-w-[250px] rounded-lg bg-white py-5 px-6 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent">
-                <ul class="block lg:flex">
-                  {%- for item in collections.page -%}
-                  <li>
-                    <a href="{{ item.url }}" 
-                      class="flex py-2 lg:ml-12 lg:inline-flex text-lg font-bold 
-                        hover:text-dark dark:text-white">
-                      {{ item.data.title }}
-                    </a>
-                  </li>
-                  {%- endfor -%}
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
+  <body class="mx-16 my-8 lg:mx-64 bg-white dark:bg-slate-800">
+    <header class="mb-8 text-center text-slate-500 dark:text-slate-400">
+      <h1 class="text-4xl">Christoph M&uuml;llner</h1>
+      <h2 class="text-xl">Software Engineer</h2>
     </header>
+    <nav class="sticky top-0 flex justify-around bg-white dark:bg-slate-800/30 backdrop-blur-sm">
+      {%- for item in collections.page -%}
+      <a href="{{ item.url }}" 
+        class="py-2 text-lg dark:text-white {{ 'underline' if title == item.data.title}}">
+        {{ item.data.title }}
+      </a>
+      {%- endfor -%}
+    </nav>
 
-    <main class="text-center mx-16 text-slate-500 dark:text-white">
+    <main class="mt-8 text-slate-500 dark:text-white">
       {{ content | safe }}
     </main>
 
