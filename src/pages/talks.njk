@@ -1,0 +1,26 @@
+---
+title: talks
+layout: default
+tags: page
+modified: 2023-12-27 00:00:00
+order: 1
+---
+
+{# todo: speaker description? #}
+
+<section>
+  <ul>
+    {%- for talk in talks -%}
+    <li class="mb-8">
+      <span>{{ talk.title }}</span>
+      </br>
+      <span class="italic">
+        <a href="{{talk.link}}" class="underline">
+          {{ talk.event }}
+        </a>
+        on {{ talk.date | readableDate }}
+      </span>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>

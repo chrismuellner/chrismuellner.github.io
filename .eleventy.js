@@ -2,6 +2,7 @@ const yaml = require("js-yaml")
 const now = String(Date.now())
 const markdownIt = require("markdown-it");
 const markdownItClass = require('@toycode/markdown-it-class');
+const dayjs = require('dayjs')
 
 module.exports = function (eleventyConfig) {
   
@@ -14,7 +15,8 @@ module.exports = function (eleventyConfig) {
     return now
   })
   // human readable date
-  eleventyConfig.addFilter("readableDate", (dateObj) => dateObj.toISOString());
+  eleventyConfig.addFilter("isoDate", (date) => dayjs(date).format())
+  eleventyConfig.addFilter("readableDate", (date) => dayjs(date).format("MMMM D, YYYY"))
 
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents))
 
