@@ -1,5 +1,37 @@
+- title: Senior Software Engineer & Product Owner
+  from: May 2023
+  company: 
+    name: Dynatrace
+    url: https://www.dynatrace.com
+    # todo: icon?
+  location: Linz, Austria
+  technologies:
+    - Kubernetes
+    - Jira
+    - Operator
+    - Helm
+    - Go
+  description: |
+     Developing Dynatrace Operator on [Github](https://github.com/dynatrace/dynatrace-operator) that simplifies deployment of monitoring components on Kubernetes clusters.
+- title: Software Engineer & Product Owner
+  from: February 2022
+  to: April 2023
+  company: 
+    name: Dynatrace
+    url: https://www.dynatrace.com
+    # todo: icon?
+  location: Linz, Austria
+  technologies:
+    - Kubernetes
+    - Jira
+    - Operator
+    - Helm
+    - Go
+  description: |
+     Developing Dynatrace Operator on [Github](https://github.com/dynatrace/dynatrace-operator) that simplifies deployment of monitoring components on Kubernetes clusters.
 - title: Software Engineer
   from: June 2021
+  to: January 2022
   company: 
     name: Dynatrace
     url: https://www.dynatrace.com
@@ -8,7 +40,7 @@
   technologies:
     - Go
     - Kubernetes
-    - operator-sdk
+    - Operator
     - Helm
   description: |
      Developing Dynatrace Operator on [Github](https://github.com/dynatrace/dynatrace-operator) that simplifies deployment of monitoring components on Kubernetes clusters.
