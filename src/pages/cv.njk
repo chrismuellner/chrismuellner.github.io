@@ -15,18 +15,29 @@ Software Engineer &amp; Product Owner at Dynatrace
   <ul>
   {%- for experience in cv.experiences -%}
     <li class="mb-8">
-      <span class="italic">
+      <p class="italic">
         {{ experience.title }}
         at
         <a href="{{ experience.company.url }}" class="underline hover:decoration-pink-500">
           {{ experience.company.name }}
         </a>
-      </span>
+      </p>
+      <p>
+        {{ experience.from }}
+        {{ experience.to }}
+      </p>
       <p>
         {% markdown %}
         {{ experience.description }}
         {% endmarkdown %}
       </p>
+      <ul class="flex text-slate-400">
+        {%- for technology in experience.technologies -%}
+        <li>
+          {{technology}}
+        </li>
+        {%- endfor -%}
+      </ul>
     </li>
   {%- endfor -%}
   </ul>
