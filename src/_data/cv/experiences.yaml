@@ -1,9 +1,8 @@
 - title: Senior Software Engineer & Product Owner
-  from: May 2023
+  from: May, 2023
   company: 
     name: Dynatrace
     url: https://www.dynatrace.com
-    # todo: icon?
   location: Linz, Austria
   technologies:
     - Kubernetes
@@ -12,14 +11,17 @@
     - Helm
     - Go
   description: |
-     Developing Dynatrace Operator on [Github](https://github.com/dynatrace/dynatrace-operator) that simplifies deployment of monitoring components on Kubernetes clusters.
+    I drove the first major release of the Dynatrace Operator with accompanying procedures, improving security processes, automating release process and testing on Github, migrating the Operator to a simpler setup experience using an OCI chart. I refined the onboarding experience in the official documentation explaining guides for complex setups.
+    
+    I designed the major evolution of the Custom Resource, in cooperation with the Team, Product Architects and Product Mangement, integrating learnings from the previous iterations into the process and allowing easier addition of new components in the future.
+
+    Throughout, I owned product topics for a team growing to 10 people and facilitated the team split to allow for further growth.
 - title: Software Engineer & Product Owner
-  from: February 2022
-  to: April 2023
+  from: February, 2022
+  to: April, 2023
   company: 
     name: Dynatrace
     url: https://www.dynatrace.com
-    # todo: icon?
   location: Linz, Austria
   technologies:
     - Kubernetes
@@ -28,14 +30,16 @@
     - Helm
     - Go
   description: |
-     Developing Dynatrace Operator on [Github](https://github.com/dynatrace/dynatrace-operator) that simplifies deployment of monitoring components on Kubernetes clusters.
+    I took over ownership of the Kubernetes Operator project and was responsible for managing and prioritizing different product topics for a growing team. I improved the development workflow for all developers by setting up Jira dashboards to provide easier access for important work and external requests. I worked on onboarding additional teams to the project, allowing their product features to be rolled out by a single platform.
+
+    I simplified the data collection for troubleshooting and reduced the initial triage time for support requests.
+    By switching to a distroless image and reducing the attack surface, I was able to integrate image scan outputs into a newly created database of known vulnerability, reducing the time it took for customers to be informed about their impact.
 - title: Software Engineer
-  from: June 2021
-  to: January 2022
+  from: June, 2021
+  to: Jan, 2022
   company: 
     name: Dynatrace
     url: https://www.dynatrace.com
-    # todo: icon?
   location: Linz, Austria
   technologies:
     - Go
@@ -43,11 +47,12 @@
     - Operator
     - Helm
   description: |
-     Developing Dynatrace Operator on [Github](https://github.com/dynatrace/dynatrace-operator) that simplifies deployment of monitoring components on Kubernetes clusters.
+    I worked on building out features for the Kubernetes Operator at Dynatrace by utilizing the Operator pattern, supported by a Webhook and introducing a new CSI driver to optimize the experience for end users. Development was done as an open-source project on Github in cooperation with a distributed Team across Europe. 
+
 
 - title: Software Engineer
-  from: Nov 2018
-  to: May 2021
+  from: Nov, 2018
+  to: May, 2021
   company: 
     name: COUNT IT Group
     url: https://www.countit.at
@@ -59,11 +64,11 @@
     - Entity Framework
     - Angular
   description: |
-     Worked on multiple projects in small to medium sized teams using C# and Entity Framework for the backend with frontends in Angular, WPF and Xamarin.
+     Worked on multiple projects in medium sized teams using C# and Entity Framework for the backend with frontends in Angular, WPF and Xamarin.
 
 - title: Internship
-  from: May 2018
-  to: Jul 2018
+  from: May, 2018
+  to: Jul, 2018
   company: 
     name: BRP-Rotax GmbH
     url: https://www.rotax.com
