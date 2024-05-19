@@ -7,10 +7,10 @@ order: 1
 ---
 
 <p class="my-8 text-center italic">
-Software Engineer &amp; Product Owner at Dynatrace
+Software Engineer &amp; Product Owner at Dynatrace, developing Kubernetes Operator to simplify deployment of obsvervability components on Kubernetes clusters.
 </p>
 
-<section>
+<section class="mt-8">
   <h2 class="text-xl font-extrabold">Experience</h2>
   <ul>
   {%- for experience in cv.experiences -%}
@@ -24,16 +24,19 @@ Software Engineer &amp; Product Owner at Dynatrace
       </p>
       <p>
         {{ experience.from }}
+        {%- if experience.to -%}
+        <span> - </span>
         {{ experience.to }}
+        {%- endif -%}
       </p>
       <p>
         {% markdown %}
         {{ experience.description }}
         {% endmarkdown %}
       </p>
-      <ul class="flex text-slate-400">
+      <ul class="flex flex-row">
         {%- for technology in experience.technologies -%}
-        <li>
+        <li class="p-1">
           {{technology}}
         </li>
         {%- endfor -%}
@@ -53,11 +56,6 @@ Software Engineer &amp; Product Owner at Dynatrace
         at
         {{ education.location }}
       </span>
-      {# <p>
-        {% markdown %}
-        {{ education.description }}
-        {% endmarkdown %}
-      </p> #}
     </li>
   {%- endfor -%}
   </ul>
