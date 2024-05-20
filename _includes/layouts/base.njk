@@ -18,13 +18,14 @@
       <h1 class="text-4xl">Christoph M&uuml;llner</h1>
       <h2 class="text-xl">Software Engineer</h2>
     </header>
-    <nav class="sticky top-0 flex justify-around bg-white dark:bg-slate-800/30 backdrop-blur-sm">
-      {%- for item in collections.page -%}
-      <a href="{{ item.url }}" 
-        class="py-2 text-lg dark:text-white {{ 'underline' if title == item.data.title}}">
-        {{ item.data.title }}
-      </a>
-      {%- endfor -%}
+    <nav class="sticky top-0 bg-white dark:bg-slate-800/30 backdrop-blur-sm">
+      <ul class="flex justify-around">
+      {%- for entry in collections.all | eleventyNavigation %}
+        <li class="py-2 text-lg dark:text-white {{ 'underline' if entry.url == page.url}}">
+          <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+        </li>
+      {%- endfor %}
+      </ul>
     </nav>
 
     <main class="mt-8 text-slate-500 dark:text-white">

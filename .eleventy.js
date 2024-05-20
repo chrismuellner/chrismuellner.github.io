@@ -4,6 +4,12 @@ const markdownItAnchor = require("markdown-it-anchor");
 const markdownIt = require("markdown-it");
 const markdownItClass = require('@toycode/markdown-it-class');
 
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginBundle = require("@11ty/eleventy-plugin-bundle");
+const pluginNavigation = require("@11ty/eleventy-navigation");
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     // "./public/": "/",
@@ -12,8 +18,15 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
-  // todo: plugins
-  
+	// Official plugins
+	eleventyConfig.addPlugin(pluginRss);
+	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+		preAttributes: { tabindex: 0 }
+	});
+	eleventyConfig.addPlugin(pluginNavigation);
+	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
+	eleventyConfig.addPlugin(pluginBundle);
+
   	// Filters
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
 		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
