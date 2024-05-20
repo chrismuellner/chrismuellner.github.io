@@ -13,26 +13,26 @@
     <link rel="shortcut icon" type="image/png" href="/images/x256-favicon.png" sizes="256x256" />
     <link rel="apple-touch-icon" type="image/png" href="/images/x256-favicon.png" /> #}
   </head>
-  <body class="mx-16 my-8 lg:mx-64 bg-white dark:bg-slate-800">
-    <header class="mb-8 text-center text-slate-500 dark:text-slate-400">
+  <body class="mx-16 my-8 lg:mx-64 bg-slate-800">
+    <header class="mb-8 text-center text-slate-400">
       <h1 class="text-4xl">Christoph M&uuml;llner</h1>
       <h2 class="text-xl">Software Engineer</h2>
     </header>
-    <nav class="sticky top-0 bg-white dark:bg-slate-800/30 backdrop-blur-sm">
+    <nav class="sticky top-0 bg-slate-800/30 backdrop-blur-sm">
       <ul class="flex justify-around">
       {%- for entry in collections.all | eleventyNavigation %}
-        <li class="py-2 text-lg dark:text-white {{ 'underline' if entry.url == page.url}}">
+        <li class="py-2 text-lg text-white {{ 'underline' if entry.url == page.url}}">
           <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
         </li>
       {%- endfor %}
       </ul>
     </nav>
 
-    <main class="mt-8 text-slate-500 dark:text-white">
+    <main class="mt-8 text-white">
       {{ content | safe }}
     </main>
 
-    <footer class="mt-0 text-center text-base text-slate-500 dark:text-slate-400">
+    <footer class="mt-0 text-center text-base text-slate-400">
       <p>&copy; {{ config.author }}</p>
     </footer>
 
