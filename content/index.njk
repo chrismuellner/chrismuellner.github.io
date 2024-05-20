@@ -6,8 +6,21 @@ eleventyNavigation:
   order: 1
 ---
 
-<div class="container max-w-lg mx-auto text-xl">
-	Hi!
-</div>
+<p class="my-8 text-center italic">
+    Hi, I'm Christoph and live in Austria!
+</p>
+
+<section class="text-center">
+    <h1 class="text-2xl">Socials</h1>
+    <ul>
+        {%- for social in config.socials -%}
+        <li>
+            <a href="{{social.url }}" class="underline hover:decoration-pink-500">
+                {{ social.name }}
+            </a>
+        </li>
+        {%- endfor -%}
+    </ul>
+</section>
 
 {# todo: last 3 posts #}
