@@ -1,49 +1,85 @@
 const yaml = require("js-yaml")
-const now = String(Date.now())
+const { DateTime } = require("luxon");
+const markdownItAnchor = require("markdown-it-anchor");
 const markdownIt = require("markdown-it");
 const markdownItClass = require('@toycode/markdown-it-class');
-const dayjs = require('dayjs')
 
 module.exports = function (eleventyConfig) {
-  
-  eleventyConfig.addWatchTarget('./styles/tailwind.config.js')
-  eleventyConfig.addWatchTarget('./styles/tailwind.css')
-  
-  eleventyConfig.addPassthroughCopy({"./styles/tailwind.css": "style.css"})
+  eleventyConfig.addPassthroughCopy({
+    // "./public/": "/",
+    "./public/img/": "/img/",
+	});
 
-  eleventyConfig.addShortcode('version', function () {
-    return now
-  })
-  // human readable date
-  eleventyConfig.addFilter("isoDate", (date) => dayjs(date).format())
-  eleventyConfig.addFilter("readableDate", (date) => dayjs(date).format("MMMM D, YYYY"))
+  eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+
+  // todo: plugins
+  
+  	// Filters
+	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
+		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
+		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
+	});
+
+	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+		return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+	});
 
   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents))
 
-  // markdown configuration
-  const md = new markdownIt({
-    linkify: true,
-    html: true,
-    code: false
-  });
-
-  // reference: https://matthewtole.com/articles/eleventy-markdown-tailwind/
-  const mapping = {
-    a: ["underline", "hover:decoration-pink-500"],
-  };
-  md.use(markdownItClass, mapping);
+	// Customize Markdown library settings:
+	eleventyConfig.amendLibrary("md", mdLib => {
+		mdLib.use(markdownItAnchor, {
+			permalink: markdownItAnchor.permalink.ariaHidden({
+				placement: "after",
+				class: "header-anchor",
+				symbol: "#",
+				ariaHidden: false,
+			}),
+			level: [1,2,3,4],
+			slugify: eleventyConfig.getFilter("slugify"),
+      // linkify: true,
+      // html: true,
+      code: false
+		});
+	});
 
   // reference: https://www.aleksandrhovhannisyan.com/blog/custom-markdown-components-in-11ty/
   eleventyConfig.addPairedShortcode("markdown", (content) => {
+    md = new markdownIt({
+      linkify: true,
+      html: true,
+      code: false
+    })
+
+    // reference: https://matthewtole.com/articles/eleventy-markdown-tailwind/
+    const mapping = {
+      a: ["underline", "hover:decoration-pink-500"],
+    };
+    md.use(markdownItClass, mapping);
+
     return md.render(content);
   });
-  eleventyConfig.setLibrary('md', md);
+
+	eleventyConfig.addShortcode("currentBuildDate", () => {
+		return (new Date()).toISOString();
+	})
 
   return {
+    templateFormats: [
+			"md",
+			"njk",
+			"html",
+			"liquid",
+		],
     markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
     dir: {
-      input: "src",
-      layouts: "_layouts"
-    },
+			input: "content",          // default: "."
+			includes: "../_includes",  // default: "_includes"
+			data: "../_data",          // default: "_data"
+			output: "_site"
+		},
+    pathPrefix: "/",
   };
 };

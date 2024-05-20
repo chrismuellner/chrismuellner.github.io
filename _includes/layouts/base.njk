@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>    
     <link rel="canonical" href="{{ config.url }}{{ page.url }}">
-    <link rel="stylesheet" type="text/css" href="/style.css?v={% version %}" />
+    <link rel="stylesheet" type="text/css" href="/tailwind.css?v={% currentBuildDate %}" />
 
     <title>{{title}} - {{ config.author }}</title>
 
@@ -34,5 +34,6 @@
     <footer class="mt-0 text-center text-base text-slate-500 dark:text-slate-400">
       <p>&copy; {{ config.author }}</p>
     </footer>
+
   </body>
 </html>
