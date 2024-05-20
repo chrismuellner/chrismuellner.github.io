@@ -17,8 +17,8 @@
 
     Throughout, I owned product topics for a team growing to 10 people and facilitated the team split to allow for further growth.
 - title: Software Engineer & Product Owner
-  from: February, 2022
-  to: April, 2023
+  from: Feb, 2022
+  to: Apr, 2023
   company: 
     name: Dynatrace
     url: https://www.dynatrace.com
@@ -35,7 +35,7 @@
     I simplified the data collection for troubleshooting and reduced the initial triage time for support requests.
     By switching to a distroless image and reducing the attack surface, I was able to integrate image scan outputs into a newly created database of known vulnerability, reducing the time it took for customers to be informed about their impact.
 - title: Software Engineer
-  from: June, 2021
+  from: Jun, 2021
   to: Jan, 2022
   company: 
     name: Dynatrace
