@@ -1,8 +1,8 @@
 ---
-title: Resume
+title: About
 layout: layouts/base.njk
 eleventyNavigation:
-  key: Resume
+  key: About Me
   order: 2
 ---
 
@@ -11,31 +11,35 @@ Software Engineer &amp; Product Owner at Dynatrace, developing Kubernetes Operat
 </p>
 
 <section class="mt-8">
-  <h2 class="text-xl font-extrabold">Experience</h2>
+  <h1 class="text-3xl font-extrabold">Experience</h1>
   <ul>
   {%- for experience in cv.experiences -%}
     <li class="mb-8">
-      <p class="italic">
-        {{ experience.title }}
-        at
-        <a href="{{ experience.company.url }}" class="underline hover:decoration-pink-500">
-          {{ experience.company.name }}
-        </a>
-      </p>
-      <p>
-        {{ experience.from }}
-        {%- if experience.to -%}
-        <span> - </span>
-        {{ experience.to }}
-        {%- endif -%}
+      <p class="flex justify-between">
+        <span>
+          {{ experience.title }}
+          at
+          <a href="{{ experience.company.url }}" class="underline hover:decoration-pink-500">
+            {{ experience.company.name }}
+          </a>
+        </span>
+        <span>
+          {%- if experience.to -%}
+          {{ experience.from }}
+          <span> - </span>
+          {{ experience.to }}
+          {%- else -%}
+          from {{ experience.from }}
+          {%- endif -%}
+        </span>
       </p>
       <p>
         {% markdown %}{{ experience.description }}{% endmarkdown %}
       </p>
-      <ul class="flex flex-row">
+      <ul class="flex flex-row text-slate-400">
         {%- for technology in experience.technologies -%}
-        <li class="p-1">
-          {{technology}}
+        <li class="p-1 mr-1">
+          #{{technology}}
         </li>
         {%- endfor -%}
       </ul>
@@ -45,7 +49,7 @@ Software Engineer &amp; Product Owner at Dynatrace, developing Kubernetes Operat
 </section>
 
 <section class="mb-8">
-  <h2 class="text-xl font-extrabold">Education</h2>
+  <h2 class="text-3xl font-extrabold">Education</h2>
   <ul>
   {%- for education in cv.educations -%}
     <li class="flex justify-between">
