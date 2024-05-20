@@ -13,8 +13,8 @@
     <link rel="shortcut icon" type="image/png" href="/images/x256-favicon.png" sizes="256x256" />
     <link rel="apple-touch-icon" type="image/png" href="/images/x256-favicon.png" /> #}
   </head>
-  <body class="mx-16 my-8 lg:mx-64 bg-slate-800">
-    <header class="mb-8 text-center text-slate-400">
+  <body class="flex flex-col min-h-screen mx-16 lg:mx-64 bg-slate-800">
+    <header class="m-8 text-center text-slate-400">
       <h1 class="text-4xl">Christoph M&uuml;llner</h1>
       <h2 class="text-xl">Software Engineer</h2>
     </header>
@@ -28,11 +28,11 @@
       </ul>
     </nav>
 
-    <main class="mt-8 text-white">
+    <main class="grow text-white">
       {{ content | safe }}
     </main>
 
-    <footer class="mt-0 text-center text-base text-slate-400">
+    <footer class="mb-8 text-slate-400">
       <p>&copy; {{ config.author }}</p>
     </footer>
 
