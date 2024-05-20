@@ -1,9 +1,7 @@
 ---
 title: resume
-layout: default
+layout: layouts/base.njk
 tags: page
-modified: 2023-12-27 00:00:00
-permalink: "/resume"
 order: 1
 ---
 
@@ -31,9 +29,7 @@ Software Engineer &amp; Product Owner at Dynatrace, developing Kubernetes Operat
         {%- endif -%}
       </p>
       <p>
-        {% markdown %}
-        {{ experience.description }}
-        {% endmarkdown %}
+        {% markdown %}{{ experience.description }}{% endmarkdown %}
       </p>
       <ul class="flex flex-row">
         {%- for technology in experience.technologies -%}
