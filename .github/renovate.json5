@@ -6,6 +6,7 @@
   "enabledManagers": [
     "npm",
     "dockerfile",
-    "github-actions"
+    "github-actions",
+    "devcontainer"
   ]
 }
