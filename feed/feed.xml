@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="en">
+	<title>Christoph Müllner</title>
+	<subtitle>Homepage hosting personal information about myself</subtitle>
+	<link href="https://muellner.dev/feed/feed.xml" rel="self"/>
+	<link href="https://muellner.dev/"/>
+	<updated>2024-05-25T14:23:51Z</updated>
+	<id>https://muellner.dev</id>
+	<author>
+		<name>Christoph Müllner</name>
+		<email>contact@cmuellner.me</email>
+	</author>
+</feed>
