@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}} - {{ config.author }}</title>
-    <meta name="description" content="{{ config.description }}">
+    <title>{{title}} - {{ metadata.author.name }}</title>
+    <meta name="description" content="{{ metadata.description }}">
 
-    <link rel="canonical" href="{{ config.url }}{{ page.url }}">
+    <link rel="canonical" href="{{ metadata.url }}{{ page.url }}">
     <link rel="stylesheet" type="text/css" href="/tailwind.css?v={% currentBuildDate %}" />
 
     <meta name="generator" content="{{ eleventy.generator }}">
   </head>
   <body class="flex flex-col min-h-screen mx-16 lg:mx-64 bg-slate-800">
     <header class="m-8 text-center text-slate-400">
-      <h1 class="text-4xl">{{ config.author }}</h1>
+      <h1 class="text-4xl">{{ metadata.author.name }}</h1>
       <h2 class="text-xl">Software Engineer</h2>
     </header>
     <nav class="sticky top-0 bg-slate-800/30 backdrop-blur-sm">
@@ -31,7 +31,7 @@
     </main>
 
     <footer class="mb-8 text-slate-400">
-      <p>&copy; {{ config.author }}</p>
+      <p>&copy; {{ metadata.author.name }}</p>
     </footer>
 
     <!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->

@@ -10,10 +10,10 @@ eleventyNavigation:
     Hi, I'm Christoph and live in Austria!
 </p>
 
-<section class="text-center">
+<section>
     <h1 class="text-2xl">Socials</h1>
     <ul>
-        {%- for social in config.socials -%}
+        {%- for social in metadata.socials -%}
         <li>
             <a href="{{social.url }}" class="underline hover:decoration-pink-500">
                 {{ social.name }}
