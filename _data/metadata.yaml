@@ -9,5 +9,7 @@ author:
 socials:
 - name: Linkedin
   url: "https://www.linkedin.com/in/christoph-muellner-at/"
+  icon: "simple:linkedin"
 - name: Github
   url: "https://github.com/chrismuellner/"
+  icon: "simple:github"

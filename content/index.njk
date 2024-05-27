@@ -23,7 +23,7 @@ eleventyNavigation:
     <li>
       <a class="inline-flex items-center justify-center gap-1 px-2 rounded-full border hover:border-pink-500" target="_blank" href="{{ social.url }}">
         <figure class="size-4 items-center">
-          {% icon "simple:"+social.name, class="fill-white" %}
+          {% icon social.icon, class="fill-white" %}
         </figure>
         <span class="select-none">
           {{ social.name }}
