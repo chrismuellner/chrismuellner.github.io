@@ -10,13 +10,9 @@ import pluginBundle from "@11ty/eleventy-plugin-bundle";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import pluginIcons from "eleventy-plugin-icons";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default async function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({
-    // "./public/": "/",
-    "./public/img/": "/img/",
-  });
-
   eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
   // Official plugins
@@ -37,6 +33,16 @@ export default async function (eleventyConfig) {
       { name: 'lucide', path: 'node_modules/lucide-static/icons', default: true }
     ],
   });
+
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+		// https://www.11ty.dev/docs/plugins/image/#eleventy-transform
+    extensions: "html",
+		formats: ["webp", "jpeg"],
+		defaultAttributes: {
+			loading: "lazy",
+			decoding: "async",
+		},
+	});
 
   // Filters
   eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {

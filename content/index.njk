@@ -6,12 +6,15 @@ eleventyNavigation:
   order: 1
 ---
 
-<section>
-  <p class="py-1">Hi, I'm</p>
-  <h1 class="text-4xl text-slate-400">{{ metadata.author.name }}</h1>
-  <p class="py-1">working as</p>
-  <h2 class="text-xl text-slate-400">Software Engineer</h2>
-  <p class="py-1">and live in Austria!</p>
+<section class="flex flex-row justify-between mb-4">
+  <div>
+    <p class="py-1">Hi, I'm</p>
+    <h1 class="text-4xl text-slate-400">{{ metadata.author.name }}</h1>
+    <p class="py-1">work as a</p>
+    <h2 class="text-xl text-slate-400">Software Engineer</h2>
+    <p class="py-1">and live in Austria!</p>
+  </div>
+  <img src="/../public/img/profile.png" alt="A headshot of myself" class="rounded-full size-32 border border-slate-400 shadow-inner">
 </section>
 
 <section>
