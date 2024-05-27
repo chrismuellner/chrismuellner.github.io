@@ -12,7 +12,7 @@
     <meta name="generator" content="{{ eleventy.generator }}">
   </head>
   <body class="flex flex-col min-h-screen max-w-2xl m-auto bg-slate-800 text-white">
-    <header class="sticky top-0 bg-slate-800/30 backdrop-blur-sm text-lg flex flex-wrap p-8">
+    <header class="sticky top-0 bg-slate-800/30 backdrop-blur-sm text-lg flex flex-wrap p-4">
       <a href="/" class="mr-8">
         <figure class="size-12 items-center">
           {% icon "lucide:mountain", class="size-full hover:stroke-pink-500" %}
@@ -29,7 +29,7 @@
       </nav>
     </header>
 
-    <main class="grow">
+    <main class="grow p-4">
       {{ content | safe }}
     </main>
 
