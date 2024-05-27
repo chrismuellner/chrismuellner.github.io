@@ -7,20 +7,22 @@ eleventyNavigation:
 ---
 
 <p class="my-8 text-center italic">
-    Hi, I'm Christoph and live in Austria!
+  Hi, I'm Christoph and live in Austria!
 </p>
 
 <section>
-    <h1 class="text-2xl">Socials</h1>
-    <ul>
-        {%- for social in metadata.socials -%}
-        <li>
-            <a href="{{social.url }}" class="underline hover:decoration-pink-500">
-                {{ social.name }}
-            </a>
-        </li>
-        {%- endfor -%}
-    </ul>
+  <ul class="flex flex-wrap gap-1.5">
+    {%- for social in metadata.socials -%}
+    <li>
+      <a class="inline-flex items-center justify-center gap-1 px-2 rounded-full border hover:border-pink-500" target="_blank" href="{{ social.url }}">
+        <figure class="size-4 items-center">
+          {% icon "simple:"+social.name, class="fill-white" %}
+        </figure>
+        <span class="select-none">
+          {{ social.name }}
+        </span>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
 </section>
-
-{# todo: last 3 posts #}

@@ -9,6 +9,7 @@ import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginBundle from "@11ty/eleventy-plugin-bundle";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
+import pluginIcons from "eleventy-plugin-icons";
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
@@ -26,6 +27,16 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addPlugin(pluginBundle);
+
+  eleventyConfig.addPlugin(pluginIcons, {
+    // icon: {
+    //   class: (name, source) => 'icon icon-'+ name,
+    // },
+    sources: [
+      { name: 'simple', path: 'node_modules/simple-icons/icons' },
+      { name: 'lucide', path: 'node_modules/lucide-static/icons', default: true }
+    ],
+  });
 
   // Filters
   eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
