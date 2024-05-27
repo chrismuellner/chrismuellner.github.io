@@ -11,22 +11,25 @@
 
     <meta name="generator" content="{{ eleventy.generator }}">
   </head>
-  <body class="flex flex-col min-h-screen mx-16 lg:mx-64 bg-slate-800">
-    <header class="m-8 text-center text-slate-400">
-      <h1 class="text-4xl">{{ metadata.author.name }}</h1>
-      <h2 class="text-xl">Software Engineer</h2>
+  <body class="flex flex-col min-h-screen max-w-2xl m-auto bg-slate-800 text-white">
+    <header class="sticky top-0 bg-slate-800/30 backdrop-blur-sm text-lg flex flex-wrap p-8">
+      <a href="/" class="mr-8">
+        <figure class="size-12 items-center">
+          {% icon "lucide:mountain", class="size-full hover:stroke-pink-500" %}
+        </figure>
+      </a>
+      <nav class="flex items-center">
+        <ul class="flex gap-4">
+        {%- for entry in collections.all | eleventyNavigation %}
+          <li class="hover:decoration-pink-500 hover:underline {{ 'underline' if entry.url == page.url}}">
+            <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
+          </li>
+        {%- endfor %}
+        </ul>
+      </nav>
     </header>
-    <nav class="sticky top-0 bg-slate-800/30 backdrop-blur-sm">
-      <ul class="flex justify-around">
-      {%- for entry in collections.all | eleventyNavigation %}
-        <li class="py-2 text-lg text-white hover:decoration-pink-500 hover:underline {{ 'underline' if entry.url == page.url}}">
-          <a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a>
-        </li>
-      {%- endfor %}
-      </ul>
-    </nav>
 
-    <main class="grow text-white">
+    <main class="grow">
       {{ content | safe }}
     </main>
 
