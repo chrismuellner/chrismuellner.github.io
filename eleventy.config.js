@@ -84,7 +84,7 @@ export default async function (eleventyConfig) {
 
     // reference: https://matthewtole.com/articles/eleventy-markdown-tailwind/
     const mapping = {
-      a: ["underline", "hover:decoration-pink-500"],
+      a: ["url"],
     };
     md.use(markdownItClass, mapping);
 
