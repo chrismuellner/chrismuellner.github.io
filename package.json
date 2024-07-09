@@ -3,8 +3,8 @@
     "start": "npm-run-all --parallel css eleventy",
     "eleventy": "npx @11ty/eleventy --serve ",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
-    "css": "npx tailwindcss -i public/css/tailwind.css -c public/css/tailwind.config.js -o _site/tailwind.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy && NODE_ENV=production npx tailwindcss -i public/css/tailwind.css -c public/css/tailwind.config.js -o _site/tailwind.css --minify"
+    "css": "npx tailwindcss -i public/css/tailwind.css -c tailwind.config.js -o _site/tailwind.css --watch",
+    "build": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy && NODE_ENV=production npx tailwindcss -i public/css/tailwind.css -c tailwind.config.js -o _site/tailwind.css --minify"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.0.0-alpha.14",
