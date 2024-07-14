@@ -1,0 +1,45 @@
+---
+title: Talks
+layout: layouts/base.njk
+eleventyNavigation:
+  key: Talks
+  order: 3
+---
+
+{# todo: speaker description? #}
+
+<section>
+  <ul>
+    {%- for talk in talks | reverse -%}
+    <li class="mb-8 flex flex-col">
+      <div class="flex justify-between">
+        <a href="{{talk.link}}" class="flex url" target="_blank">
+          <figure class="size-8 items-center">
+            {% if talk.type == "online" %}
+              {% set icon = "monitor-play" %}
+            {% else %}
+              {% set icon = "presentation" %}
+            {% endif %}
+
+            {% icon icon, class="size-full" %}
+          </figure>
+          <h1 class="text-xl ml-2">{{ talk.event }}</h1>
+        </a>
+
+        <time datetime="{{ talk.date | htmlDateString }}" class="text-slate-400">{{ talk.date | readableDate }}</time>
+      </div>
+
+      <h2>{{ talk.title }}</h2>
+
+      {% if talk.recording %}
+      <a class="inline-flex items-center justify-center gap-1 px-2 rounded-full border hover:border-pink-500" target="_blank" href="{{ talk.recording }}">
+        <figure class="size-4 items-center">
+          {% icon "video", class="size-full" %}
+        </figure>
+        <span class="select-none">Watch recording</span>
+      </a>
+      {% endif %}
+      </li>
+    {%- endfor -%}
+  </ul>
+</section>
