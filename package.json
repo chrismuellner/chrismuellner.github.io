@@ -7,7 +7,7 @@
     "build": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy && NODE_ENV=production npx tailwindcss -i public/css/tailwind.css -c tailwind.config.js -o _site/tailwind.css --minify"
   },
   "devDependencies": {
-    "@11ty/eleventy": "3.0.0-alpha.16",
+    "@11ty/eleventy": "3.0.0-alpha.17",
     "@11ty/eleventy-img": "^4.0.0",
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-bundle": "^2.0.0",
