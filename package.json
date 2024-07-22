@@ -1,10 +1,10 @@
 {
   "scripts": {
-    "start": "npm-run-all --parallel css eleventy",
-    "eleventy": "npx @11ty/eleventy --serve ",
-    "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
-    "css": "npx tailwindcss -i public/css/tailwind.css -c tailwind.config.js -o _site/tailwind.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true npx @11ty/eleventy && NODE_ENV=production npx tailwindcss -i public/css/tailwind.css -c tailwind.config.js -o _site/tailwind.css --minify"
+    "start": "npm-run-all -p dev:*",
+    "build": "npx @11ty/eleventy && tailwindcss -i public/css/tailwind.css -o _site/tailwind.css",
+    "dev:11ty": "eleventy --serve --quiet",
+    "dev:css": "tailwindcss -i public/css/tailwind.css -o _site/tailwind.css --watch --postcss",
+    "debug": "DEBUG=Eleventy* npx @11ty/eleventy"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.0.0-alpha.16",
