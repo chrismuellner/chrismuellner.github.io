@@ -6,9 +6,20 @@ eleventyNavigation:
   order: 3
 ---
 
-{# todo: speaker description? #}
+<section class="mb-8">
+  <h1 class="text-3xl font-extrabold">Speaker</h1>
+  <div class="flex flex-row justify-between ">
+    <p class="italic">
+      Christoph is a Software Engineer and Product Owner at Dynatrace working on simplifying observability in Kubernetes.
+    </p>
+    <div class="flex-none">
+      <img src="/../public/img/speaker.png" alt="A picture of myself during a talk" class="rounded-md size-32 border border-slate-400 shadow-inner">
+    </div>
+  </div>
+</section>
 
 <section>
+  <h1 class="text-3xl font-extrabold">Talks</h1>
   <ul>
     {%- for talk in talks | reverse -%}
     <li class="mb-8 flex flex-col">
