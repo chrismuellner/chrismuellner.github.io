@@ -7,3 +7,9 @@
   event: CNCF Meetup (Vienna)
   link: https://community.cncf.io/events/details/cncf-vienna-presents-harnessing-operators-power-ampamp-how-we-made-backstage-improve-developer-efficiency/
   recording: https://youtu.be/MpoNi79l5kk?t=1270&si=Qa-ZInW5U-AWCUdf
+- title: "Scaling Observability: Harnessing the Power of Operators in Kubernetes"
+  date: 2024-07-18
+  event: WeAreDevelopers World Congress (Virtual Track)
+  type: online
+  link: https://www.wearedevelopers.com/world-congress
+  recording: https://worldcongress.app.swapcard.com/event/wearedevelopers-world-congress-2024/planning/UGxhbm5pbmdfMTk4ODczOQ==
