@@ -7,12 +7,7 @@
     <meta name="description" content="{{ metadata.description }}">
 
     <link rel="canonical" href="{{ metadata.url }}{{ page.url }}">
-    {% set css %}
-    {% include "public/css/index.css" %}
-    {% endset %}
-    <style>
-      {{ css | postcss | safe }}
-    </style>
+    <link rel="stylesheet" href="{{ '/styles.css' | url }}">
 
     <meta name="generator" content="{{ eleventy.generator }}">
   </head>

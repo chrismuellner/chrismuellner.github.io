@@ -30,9 +30,9 @@ export default async function (eleventyConfig) {
         (e) => done(e, null)
       );
   });
-  eleventyConfig.addWatchTarget('public/**/*.css');
 
-  eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+  eleventyConfig.addWatchTarget("public/**/*.css");
+  eleventyConfig.addWatchTarget("public/**/*.{svg,webp,png,jpeg}");
 
   // Official plugins
   eleventyConfig.addPlugin(pluginRss);

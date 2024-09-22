@@ -10,6 +10,7 @@ export default {
         require('@tailwindcss/typography')
     ],
     content: [
-        "./_site/**/*.{html,md,njk,css}"
+        "./_includes/**/*.{html,md,njk,css}",
+        "./content/**/*.{html,md,njk,css}"
     ],
 };
