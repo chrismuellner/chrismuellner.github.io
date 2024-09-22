@@ -9,5 +9,7 @@ export default {
         require('daisyui'), 
         require('@tailwindcss/typography')
     ],
-    content: ["./_site/**/*.{html,md,njk,css}"],
+    content: [
+        "./_site/**/*.{html,md,njk,css}"
+    ],
 };

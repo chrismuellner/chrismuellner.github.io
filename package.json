@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "eleventy --serve --quiet",
+    "start": "npx @11ty/eleventy --serve --quiet",
     "build": "npx @11ty/eleventy",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy"
   },
