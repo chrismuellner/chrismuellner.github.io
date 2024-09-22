@@ -1,5 +1,10 @@
 import yaml from "js-yaml";
 import { DateTime } from "luxon";
+
+import postcss from "postcss";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
+
 import markdownItAnchor from "markdown-it-anchor";
 import markdownIt from "markdown-it";
 import markdownItClass from '@toycode/markdown-it-class';
@@ -13,6 +18,20 @@ import pluginIcons from "eleventy-plugin-icons";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export default async function (eleventyConfig) {
+  eleventyConfig.addNunjucksAsyncFilter('postcss', (cssCode, done) => {
+    postcss(
+      [
+        tailwindcss('./tailwind.config.js'), 
+        autoprefixer()
+      ])
+      .process(cssCode)
+      .then(
+        (r) => done(null, r.css),
+        (e) => done(e, null)
+      );
+  });
+  eleventyConfig.addWatchTarget('public/**/*.css');
+
   eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
   // Official plugins

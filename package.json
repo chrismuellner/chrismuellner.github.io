@@ -1,9 +1,7 @@
 {
   "scripts": {
-    "start": "npm-run-all -p dev:*",
-    "build": "npx @11ty/eleventy && tailwindcss -i public/css/tailwind.css -o _site/tailwind.css",
-    "dev:11ty": "eleventy --serve --quiet",
-    "dev:css": "tailwindcss -i public/css/tailwind.css -o _site/tailwind.css --watch --postcss",
+    "start": "eleventy --serve --quiet",
+    "build": "npx @11ty/eleventy",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy"
   },
   "devDependencies": {
@@ -13,14 +11,15 @@
     "@11ty/eleventy-plugin-bundle": "^2.0.0",
     "@11ty/eleventy-plugin-rss": "^2.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "@tailwindcss/typography": "^0.5.15",
     "@toycode/markdown-it-class": "^1.2.4",
     "autoprefixer": "^10.4.19",
+    "daisyui": "^4.12.10",
     "eleventy-plugin-icons": "^4.5.0",
     "js-yaml": "^4.1.0",
     "lucide-static": "^0.399.0",
     "luxon": "^3.3.0",
     "markdown-it-anchor": "^9.0.0",
-    "npm-run-all2": "^6.0.0",
     "postcss": "^8.4.38",
     "simple-icons": "^12.0.0",
     "tailwindcss": "^3.4.3"

@@ -5,6 +5,9 @@ export default {
         extend: {},
     },
     variants: {},
-    plugins: [],
+    plugins: [
+        require('daisyui'), 
+        require('@tailwindcss/typography')
+    ],
     content: ["./_site/**/*.{html,md,njk,css}"],
 };

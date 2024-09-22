@@ -7,12 +7,17 @@
     <meta name="description" content="{{ metadata.description }}">
 
     <link rel="canonical" href="{{ metadata.url }}{{ page.url }}">
-    <link rel="stylesheet" type="text/css" href="/tailwind.css?v={% currentBuildDate %}" />
+    {% set css %}
+    {% include "public/css/index.css" %}
+    {% endset %}
+    <style>
+      {{ css | postcss | safe }}
+    </style>
 
     <meta name="generator" content="{{ eleventy.generator }}">
   </head>
-  <body class="flex flex-col min-h-screen max-w-2xl m-auto bg-slate-800 text-white">
-    <header class="sticky top-0 bg-slate-800/30 backdrop-blur-sm text-lg flex flex-wrap p-4">
+  <body class="flex flex-col min-h-screen max-w-2xl m-auto text-white">
+    <header class="sticky top-0 backdrop-blur-sm text-lg flex flex-wrap p-4">
       <a href="/" class="mr-8">
         <figure class="size-12 items-center">
           {% icon "lucide:mountain", class="size-full hover:stroke-pink-500" %}
