@@ -24,7 +24,7 @@ export default async function (eleventyConfig) {
         tailwindcss('./tailwind.config.js'), 
         autoprefixer()
       ])
-      .process(cssCode)
+      .process(cssCode, { from: undefined })
       .then(
         (r) => done(null, r.css),
         (e) => done(e, null)

@@ -6,11 +6,14 @@ export default {
     },
     variants: {},
     plugins: [
-        require('daisyui'), 
-        require('@tailwindcss/typography')
+        require('@tailwindcss/typography'),
+        require('daisyui')
     ],
     content: [
         "./_includes/**/*.{html,md,njk,css}",
         "./content/**/*.{html,md,njk,css}"
     ],
+    daisyui: {
+        themes: ["dark"],
+      },
 };
