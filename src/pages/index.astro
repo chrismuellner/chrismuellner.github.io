@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Social from '../components/Social.astro';
+
+import { Image } from 'astro:assets';
+import profileImage from '../assets/profile.png';
+
+import { AUTHOR } from '../consts';
+---
+
+<BaseLayout>
+	<section class="flex flex-row justify-between mb-4">
+		<div>
+			<p class="py-1">👋 Hi, I'm</p>
+			<h1 class="text-4xl text-slate-400">{ AUTHOR }</h1>
+			<p class="py-1">a Software Engineer from Austria 🇦🇹</p>
+		</div>
+		<Image src={profileImage} alt="A headshot of myself" class="rounded-full size-32 border border-slate-400 shadow-inner" />
+	</section>
+
+	<section>
+		<ul class="flex flex-wrap gap-1.5">
+			<Social name="Github" url="https://github.com/chrismuellner" icon="github" />
+			<Social name="Linkedin" url="https://www.linkedin.com/in/christoph-muellner-at" icon="linkedin" />
+		</ul>
+	</section>
+</BaseLayout>

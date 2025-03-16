@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components'
+import FormattedDate from './FormattedDate.astro'
+
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+	talk: CollectionEntry<'talks'>;
+}
+
+const { talk } = Astro.props;
+const icon = talk.data.type == "online" ? 'monitor-play' : 'presentation';
+---
+
+<li class="mb-8 flex flex-col">
+	<div class="flex justify-between">
+		<a href={ talk.data.link } class="flex url" target="_blank">
+			<Icon name={icon} class="fill-white size-8" />
+			<h1 class="text-xl ml-2">{ talk.data.event }</h1>
+		</a>
+
+		<FormattedDate date={ talk.data.date } />
+	</div>
+
+	<h2>{ talk.data.title }</h2>
+
+	{ talk.data.recording && (
+	<a class="inline-flex items-center justify-center gap-1 px-2 rounded-full border hover:border-pink-500" target="_blank" href={ talk.data.recording }>
+		<Icon name="video-camera" class="fill-white size-4" />
+		<span class="select-none">Watch recording</span>
+	</a>
+	)}
+</li>

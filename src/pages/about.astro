@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Experience from '../components/Experience.astro';
+import Education from '../components/Education.astro';
+
+import { getCollection } from 'astro:content';
+
+const educations = await getCollection('education');
+const experiences = await getCollection('experience');
+---
+
+<BaseLayout title="About">
+	<p class="mb-8 text-center italic">
+		Software Engineer &amp; Product Owner at Dynatrace, developing Kubernetes Operator to simplify deployment of observability components on Kubernetes clusters.
+	</p>
+		
+	<section class="mb-8">
+		<h1 class="text-3xl font-extrabold">Experience</h1>
+		<ul>
+			{experiences.map(experience => (
+				<Experience experience={experience} />
+			))}
+		</ul>
+	</section>
+	
+	<section class="mb-8">
+		<h2 class="text-3xl font-extrabold">Education</h2>
+		<ul>
+			{educations.map(education => (
+				<Education education={education} />
+			))}
+		</ul>
+	</section>
+</BaseLayout>

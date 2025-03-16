@@ -1,3 +1,3 @@
-# personal website
+# Personal website
 
- - https://github.com/11ty/eleventy-base-blog/tree/main
+ - https://github.com/withastro/astro/tree/main/examples
