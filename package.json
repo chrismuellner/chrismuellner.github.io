@@ -16,10 +16,5 @@
     "astro-icon": "^1.1.5",
     "daisyui": "^5.0.2",
     "tailwindcss": "^4.0.12"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.36.0",
-    "@tailwindcss/oxide-linux-x64-gnu": "^4.0.14",
-    "lightningcss-linux-x64-gnu": "^1.29.3"
   }
 }
