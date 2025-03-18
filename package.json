@@ -17,7 +17,7 @@
     "daisyui": "^4.12.10",
     "eleventy-plugin-icons": "^4.5.0",
     "js-yaml": "^4.1.0",
-    "lucide-static": "^0.399.0",
+    "lucide-static": "^0.483.0",
     "luxon": "^3.3.0",
     "markdown-it-anchor": "^9.0.0",
     "postcss": "^8.4.38",
