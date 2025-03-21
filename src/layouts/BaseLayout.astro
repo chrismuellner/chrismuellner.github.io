@@ -9,15 +9,15 @@ interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
 }
+const { title, description = SITE_DESCRIPTION } = Astro.props;
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
-
+const actualTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 ---
 
 <!doctype html>
-<html lang="en" class="">
+<html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={actualTitle} description={description} />
 	</head>
 	<body class="flex flex-col min-h-screen max-w-2xl m-auto text-white">
 		<Header />

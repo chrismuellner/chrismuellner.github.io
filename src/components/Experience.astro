@@ -14,7 +14,7 @@ const { experience } = Astro.props;
 		<span>
 			{ experience.data.title }
 			at
-			<a href={ experience.data.company.url } class="url">
+			<a href={ experience.data.company.url } class="underline hover:decoration-pink-500">
 			{ experience.data.company.name }
 			</a>
 		</span>
@@ -36,7 +36,7 @@ const { experience } = Astro.props;
 	<ul class="flex flex-row text-slate-400">
 		{ experience.data.technologies.map(technology => (
 			<li class="p-1 mr-1">
-			#{ technology }
+			{ technology }
 			</li>
 		))}
 	</ul>
