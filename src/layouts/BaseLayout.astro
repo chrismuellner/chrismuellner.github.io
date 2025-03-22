@@ -1,0 +1,29 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+import { AUTHOR, SITE_DESCRIPTION } from '../consts';
+
+interface Props {
+	title?: string | undefined;
+	description?: string | undefined;
+}
+const { title, description = SITE_DESCRIPTION } = Astro.props;
+
+const actualTitle = title ? `${title} | ${AUTHOR}` : AUTHOR;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={actualTitle} description={description} />
+	</head>
+	<body class="flex flex-col min-h-screen max-w-2xl m-auto text-white">
+		<Header />
+		<main class="grow p-4">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -3,3 +3,5 @@ jspm_packages
 dist
 .DS_Store
 _site
+
+.astro

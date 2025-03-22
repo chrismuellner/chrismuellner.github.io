@@ -1,0 +1,19 @@
+---
+interface Props {
+	date: Date;
+	skipDay?: boolean;
+}
+const { date, skipDay } = Astro.props;
+
+const day = skipDay ? undefined : 'numeric';
+---
+
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString('en-us', {
+			year: 'numeric',
+			month: 'short',
+			day: day,
+		})
+	}
+</time>

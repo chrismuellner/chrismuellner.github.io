@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+	education: CollectionEntry<'education'>;
+}
+
+const { education } = Astro.props;
+---
+
+<li class="flex justify-between">
+	<span>
+	{ education.data.location }-{ education.data.degree }
+	</span>
+
+	<span>
+	{ education.data.from }-{ education.data.to }
+	</span>
+</li>

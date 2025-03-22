@@ -1,0 +1,41 @@
+- category: Programming Languages
+  skills:
+    - Go
+    - C#
+    - Python
+    - Typescript
+    - SQL
+    - HTML/CSS
+- category: Frameworks
+  skills:
+    - operator-sdk
+    - OpenAPI
+    - REST
+- category: Web
+  skills:
+    - Jekyll
+    - Angular
+    - Blazor
+- category: Native Frontend
+  skills:
+    - WPF
+    - Xamarin
+- category: IDEs
+  skills:
+    - GoLand
+    - Visual Studio Code
+    - IntelliJ IDEA
+    - Visual Studio
+- category: Tools
+  skills:
+    - Jira
+    - Markdown
+    - Git
+    - Bash
+- category: Infrastructure
+  skills:
+    - Kubernetes
+    - Helm Charts
+    - Github Actions
+    - Docker
+    - Docker Compose

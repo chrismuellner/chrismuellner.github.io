@@ -1,0 +1,43 @@
+---
+import FormattedDate from './FormattedDate.astro'
+
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+	experience: CollectionEntry<'experience'>;
+}
+
+const { experience } = Astro.props;
+---
+
+<li class="mb-8">
+	<p class="flex justify-between">
+		<span>
+			{ experience.data.title }
+			at
+			<a href={ experience.data.company.url } class="underline hover:decoration-pink-500">
+			{ experience.data.company.name }
+			</a>
+		</span>
+		{ experience.data.to ?
+			<span>
+			<FormattedDate date={ experience.data.from } skipDay={true} />
+			-
+			<FormattedDate date={ experience.data.to } skipDay={true} />
+			</span>
+			:
+			<span>
+			from <FormattedDate date={ experience.data.from } skipDay={true} />
+			</span>
+		}
+	</p>
+	<p>
+		{ experience.data.description }
+	</p>
+	<ul class="flex flex-row text-slate-400">
+		{ experience.data.technologies.map(technology => (
+			<li class="p-1 mr-1">
+			{ technology }
+			</li>
+		))}
+	</ul>
+</li>

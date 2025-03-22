@@ -1,28 +1,23 @@
 {
+  "name": "muellner.dev",
+  "type": "module",
+  "version": "1.0.0",
   "scripts": {
-    "start": "npx @11ty/eleventy --serve --quiet",
-    "build": "npx @11ty/eleventy",
-    "debug": "DEBUG=Eleventy* npx @11ty/eleventy"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "devDependencies": {
-    "@11ty/eleventy": "3.0.0",
-    "@11ty/eleventy-img": "^5.0.0",
-    "@11ty/eleventy-navigation": "^0.3.5",
-    "@11ty/eleventy-plugin-bundle": "^3.0.0",
-    "@11ty/eleventy-plugin-rss": "^2.0.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@tailwindcss/typography": "^0.5.15",
-    "@toycode/markdown-it-class": "^1.2.4",
-    "autoprefixer": "^10.4.19",
-    "daisyui": "^4.12.10",
-    "eleventy-plugin-icons": "^4.5.0",
-    "js-yaml": "^4.1.0",
-    "lucide-static": "^0.399.0",
-    "luxon": "^3.3.0",
-    "markdown-it-anchor": "^9.0.0",
-    "postcss": "^8.4.38",
-    "simple-icons": "^12.0.0",
-    "tailwindcss": "^3.4.3"
+  "dependencies": {
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
+    "@tailwindcss/vite": "^4.0.12",
+    "astro": "^5.4.1",
+    "astro-icon": "^1.1.5",
+    "daisyui": "^5.0.2",
+    "tailwindcss": "^4.0.12"
   },
-  "type": "module"
+  "optionalDependencies": {
+    "sharp": "^0.33.5"
+  }
 }

@@ -1,7 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-a.url {
-    @apply underline hover:decoration-pink-500
-}
