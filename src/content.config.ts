@@ -26,39 +26,6 @@ const education = defineCollection({
         thesis: z.string(),
     }),
 });
-// const other = defineCollection({
-//     loader: file("./src/data/other.yaml"),
-//     schema: z.array(
-//         z.object({
-//             title: z.string(),
-//             subtitle: z.string().optional(),
-//             year: z.array(z.number()),
-//             description: z.string(),
-//         })
-//     ),
-// });
-// const project = defineCollection({
-//     loader: file("./src/data/project.yaml"),
-//     schema: z.array(
-//         z.object({
-//             title: z.string(),
-//             subtitle: z.string().optional(),
-//             github_url: z.string().optional(),
-//             year: z.number(),
-//             technologies: z.array(z.string()),
-//             description: z.string(),
-//         })
-//     ),
-// });
-// const skill = defineCollection({
-//     loader: file("./src/data/skill.yaml"),
-//     schema: z.array(
-//         z.object({
-//             category: z.string(),
-//             sills: z.array(z.string()),
-//         })
-//     ),
-// });
 
 const talks = defineCollection({
     loader: file("./src/data/talks.yaml"),
