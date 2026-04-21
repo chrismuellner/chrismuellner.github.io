@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content';
-import { file } from 'astro/loaders';
+import { defineCollection } from 'astro:content';
+import { z } from 'zod';
+import { file, glob } from 'astro/loaders';
 
 const experience = defineCollection({
     loader: file("./src/data/experience.yaml"),
@@ -9,7 +10,7 @@ const experience = defineCollection({
         to: z.coerce.date().optional(),
         company: z.object({
             name: z.string(),
-            url: z.string().url().optional(),
+            url: z.url().optional(),
         }),
         location: z.string(),
         technologies: z.array(z.string()),
@@ -34,9 +35,24 @@ const talks = defineCollection({
         date: z.coerce.date(),
         event: z.string(),
         type: z.string().optional(),
-        link: z.string().url(),
-        recording: z.string().url().optional(),
+        link: z.url(),
+        recording: z.url().optional(),
     }),
 });
 
-export const collections = { education, experience, talks };
+const blog = defineCollection({
+    loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        pubDate: z.coerce.date(),
+        updatedDate: z.coerce.date().optional(),
+        tags: z.array(z.string()).optional(),
+        changelog: z.array(z.object({
+            date: z.coerce.date(),
+            note: z.string(),
+        })).optional(),
+    }),
+});
+
+export const collections = { education, experience, talks, blog };

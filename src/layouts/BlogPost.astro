@@ -1,0 +1,55 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+interface ChangelogEntry {
+	date: Date;
+	note: string;
+}
+
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	tags?: string[];
+	changelog?: ChangelogEntry[];
+}
+
+const { title, description, pubDate, updatedDate, tags, changelog } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+	<article class="prose prose-invert max-w-none">
+		<div class="mb-6">
+			<h1 class="text-3xl font-bold mb-2">{title}</h1>
+			<div class="text-sm text-gray-400 flex flex-wrap gap-x-4 gap-y-1">
+				<span>Published <FormattedDate date={pubDate} /></span>
+				{updatedDate && <span>Updated <FormattedDate date={updatedDate} /></span>}
+			</div>
+			{tags && tags.length > 0 && (
+				<div class="flex flex-wrap gap-2 mt-3">
+					{tags.map(tag => (
+						<span class="badge badge-outline badge-sm">{tag}</span>
+					))}
+				</div>
+			)}
+		</div>
+
+		<slot />
+
+		{changelog && changelog.length > 0 && (
+			<section class="mt-12 border-t border-gray-700 pt-6">
+				<h2 class="text-lg font-semibold mb-3">Changelog</h2>
+				<ul class="space-y-2 text-sm">
+					{changelog.map(entry => (
+						<li class="flex gap-3">
+							<span class="text-gray-400 shrink-0"><FormattedDate date={entry.date} /></span>
+							<span>{entry.note}</span>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+	</article>
+</BaseLayout>
