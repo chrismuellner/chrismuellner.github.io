@@ -25,6 +25,55 @@ pre.astro-code .line::before {
     user-select: none;
 }
 
+/* Details/summary collapsibles */
+.prose details {
+    border: 1px solid color-mix(in oklch, var(--color-base-content) 15%, transparent);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-block: 1.25rem;
+}
+
+.prose details > summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    font-weight: 500;
+    background-color: color-mix(in oklch, var(--color-base-content) 5%, transparent);
+    user-select: none;
+}
+
+.prose details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.prose details > summary::before {
+    content: '▶';
+    font-size: 0.6em;
+    color: color-mix(in oklch, var(--color-base-content) 50%, transparent);
+    transition: transform 0.15s ease;
+    flex-shrink: 0;
+}
+
+.prose details[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+.prose details[open] > summary {
+    border-bottom: 1px solid color-mix(in oklch, var(--color-base-content) 15%, transparent);
+}
+
+.prose details > pre.astro-code {
+    margin: 0;
+    border-radius: 0;
+}
+
+.prose details > pre.astro-code + pre.astro-code {
+    border-top: 1px solid color-mix(in oklch, var(--color-base-content) 15%, transparent);
+}
+
 pre.astro-code .line.highlighted {
     background-color: color-mix(in oklch, var(--color-primary) 15%, transparent);
     border-left: 2px solid var(--color-primary);
