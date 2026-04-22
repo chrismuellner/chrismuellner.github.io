@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
+import { rehypeGithubAlerts } from 'rehype-github-alerts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,9 @@ export default defineConfig({
 		sitemap(),
 		icon()
 	],
+	markdown: {
+		rehypePlugins: [rehypeGithubAlerts],
+	},
 	vite: {
 		plugins: [
 			tailwindcss()

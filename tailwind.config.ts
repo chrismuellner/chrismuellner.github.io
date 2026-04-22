@@ -5,10 +5,7 @@ export default {
     theme: {
         extend: {},
     },
-    plugins: [
-        require('@tailwindcss/typography'),
-        require('daisyui')
-    ],
+    plugins: [],
     content: [
         "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     ],

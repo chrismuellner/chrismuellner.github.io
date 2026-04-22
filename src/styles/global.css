@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "rehype-github-alerts/styling/css/index.css";
+@plugin "@tailwindcss/typography";
 @plugin "daisyui" {
     themes: dark --default;
 }
