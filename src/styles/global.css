@@ -4,3 +4,30 @@
 @plugin "daisyui" {
     themes: dark --default;
 }
+
+/* Shiki code blocks */
+pre.astro-code {
+    counter-reset: line;
+}
+
+pre.astro-code code {
+    display: grid;
+}
+
+pre.astro-code .line::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: 1.5rem;
+    margin-right: 1.5rem;
+    text-align: right;
+    color: color-mix(in oklch, var(--color-base-content) 30%, transparent);
+    user-select: none;
+}
+
+pre.astro-code .line.highlighted {
+    background-color: color-mix(in oklch, var(--color-primary) 15%, transparent);
+    border-left: 2px solid var(--color-primary);
+    margin-left: -1rem;
+    padding-left: 1rem;
+}
