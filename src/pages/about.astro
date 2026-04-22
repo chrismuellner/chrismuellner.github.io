@@ -17,7 +17,7 @@ const experiences = await getCollection('experience');
 	<section class="mb-8">
 		<h1 class="text-3xl font-extrabold">Experience</h1>
 		<ul>
-			{experiences.map(experience => (
+			{experiences.reverse().map(experience => (
 				<Experience experience={experience} />
 			))}
 		</ul>
@@ -26,7 +26,7 @@ const experiences = await getCollection('experience');
 	<section class="mb-8">
 		<h2 class="text-3xl font-extrabold">Education</h2>
 		<ul>
-			{educations.map(education => (
+			{educations.reverse().map(education => (
 				<Education education={education} />
 			))}
 		</ul>
