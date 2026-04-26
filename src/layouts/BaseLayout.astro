@@ -8,8 +8,9 @@ import { AUTHOR, SITE_DESCRIPTION } from '../consts';
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
+	image?: string | undefined;
 }
-const { title, description = SITE_DESCRIPTION } = Astro.props;
+const { title, description = SITE_DESCRIPTION, image } = Astro.props;
 
 const actualTitle = title ? `${title} | ${AUTHOR}` : AUTHOR;
 ---
@@ -17,7 +18,7 @@ const actualTitle = title ? `${title} | ${AUTHOR}` : AUTHOR;
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={actualTitle} description={description} />
+		<BaseHead title={actualTitle} description={description} image={image} />
 	</head>
 	<body class="flex flex-col min-h-screen max-w-2xl m-auto text-white">
 		<Header />
