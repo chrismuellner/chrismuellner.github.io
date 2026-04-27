@@ -1,4 +1,5 @@
 ---
+import type { MarkdownHeading } from 'astro';
 import BaseLayout from './BaseLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 
@@ -15,9 +16,10 @@ interface Props {
 	tags?: string[];
 	changelog?: ChangelogEntry[];
 	ogImage?: string;
+	headings?: MarkdownHeading[];
 }
 
-const { title, description, pubDate, updatedDate, tags, changelog, ogImage } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, changelog, ogImage, headings } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} image={ogImage}>
@@ -36,6 +38,19 @@ const { title, description, pubDate, updatedDate, tags, changelog, ogImage } = A
 				</div>
 			)}
 		</div>
+
+		{headings && headings.length > 0 && (
+			<nav class="mb-8 p-4 rounded border border-gray-700 not-prose">
+				<p class="font-semibold mb-2 text-sm">Table of Contents</p>
+				<ul class="space-y-1 text-sm">
+					{headings.map(h => (
+						<li style={`padding-left: ${(h.depth - 2) * 1}rem`}>
+							<a href={`#${h.slug}`} class="text-gray-400 hover:text-white">{h.text}</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+		)}
 
 		<slot />
 

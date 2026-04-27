@@ -52,6 +52,7 @@ const blog = defineCollection({
             date: z.coerce.date(),
             note: z.string(),
         })).optional(),
+        toc: z.boolean().optional(),
     }),
 });
 
