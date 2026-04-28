@@ -5,6 +5,10 @@
     themes: dark --default;
 }
 
+html {
+    scroll-padding-top: 5rem;
+}
+
 /* Shiki code blocks */
 pre.astro-code {
     counter-reset: line;
