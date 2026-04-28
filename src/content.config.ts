@@ -52,7 +52,7 @@ const blog = defineCollection({
             date: z.coerce.date(),
             note: z.string(),
         })).optional(),
-        toc: z.boolean().optional(),
+        toc: z.union([z.boolean(), z.number().int().min(1)]).optional(),
     }),
 });
 
