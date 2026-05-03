@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint:md": "markdownlint-cli2 'src/content/blog/**/*.md'"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
@@ -19,6 +20,9 @@
     "daisyui": "^5.0.2",
     "rehype-github-alerts": "^4.2.0",
     "tailwindcss": "^4.0.12"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.17.0"
   },
   "optionalDependencies": {
     "sharp": "^0.34.0"

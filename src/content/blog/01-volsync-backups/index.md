@@ -1,6 +1,6 @@
 ---
 title: Local, Encrypted Backups for a Kubernetes Homelab
-description: How to use volsync and Kopia for encrypted, local backups.
+description: How to use VolSync and Kopia for encrypted, local backups.
 pubDate: 2026-04-30
 tags: [homelab, kubernetes]
 toc: 3
@@ -67,11 +67,13 @@ We'll set up each required resource one by one with a verification check for eac
 ### 1. Initialize the repository
 
 Install [kopia cli](https://kopia.io/docs/installation/#installing-kopia).
+
 ```sh
 brew install kopia
 ```
 
 Create a kopia repository in the directory you want to use for your backups by connecting to NAS from local device:
+
 - `<NAS_PATH>` should be the directory used on the NAS
 - `<PASSWORD>` should be a sufficiently complex password, e.g. generated using password manager
 
@@ -85,6 +87,7 @@ kopia repository create filesystem \
 > The directory used on the NAS must be locally mounted and available under `<NAS_PATH>`. Remember to store `<PASSWORD>` as it must be reused to configure Kopia!
 
 Output of the `kopia repository create` command should indicate success:
+
 ```sh
 Initializing repository with:
   block hash:          BLAKE2B-256-128
@@ -98,6 +101,7 @@ Connected to repository.
 ### 2. Deploy Kopia
 
 Configure Kopia to use filesystem-based repository on NAS by using [app-template chart](https://bjw-s-labs.github.io/helm-charts/docs/app-template) with the following resources:
+
 1. Secret with `<PASSWORD>` used to create Kopia repository
 2. `OCIRepository` for `app-template` chart
 3. `HelmRelease` to roll out kopia with correct `repository.config`
@@ -109,6 +113,7 @@ Configure Kopia to use filesystem-based repository on NAS by using [app-template
 <summary>Minimal Flux resources to install Kopia</summary>
 
 Secret with `<PASSWORD>` used to create kopia repository.
+
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -119,6 +124,7 @@ stringData:
 ```
 
 `OCIRepository` for `app-template` chart.
+
 ```yaml
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
@@ -135,6 +141,7 @@ spec:
 ```
 
 `HelmRelease` to roll out Kopia with correct `repository.config`.
+
 ```yaml {24-36}
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -233,6 +240,7 @@ Install VolSync via the [app-template](https://bjw-s-labs.github.io/helm-charts/
 <summary>Minimal Flux resources to install VolSync</summary>
 
 `OCIRepository` for `volsync-perfectra1n` (OCI mirror) chart.
+
 ```yaml
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: OCIRepository
@@ -249,6 +257,7 @@ spec:
 ```
 
 `HelmRelease` to roll out VolSync.
+
 ```yaml
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -282,6 +291,7 @@ spec:
 </details>
 
 `volsync` deployment and pod should be running in the same namespace as Kopia with new CRDs now available in the cluster:
+
 - `ReplicationSource`
 - `ReplicationDestination`
 - `KopiaMaintenance`
@@ -350,11 +360,11 @@ spec:
 
 This takes a snapshot of the PVC using the provided `VolumeSnapshotClass` and stores it in the Kopia repository on the NAS's filesystem. At this point a snapshot of the volume will be regularly stored in the Kopia repository, but we haven't yet configured anything to restore from them - that's covered in the next section.
 
-`moverVolumes` adds extra volumes to the VolSync job's pods. `mountPath` specifies the path it's mounted in the pod, which is prefixed with `/mnt` by VolSync - `repository` therefore gets mounted to `/mnt/repository` in the VolSync jobs, matching the value of `KOPIA_REPOSITORY`. 
+`moverVolumes` adds extra volumes to the VolSync job's pods. `mountPath` specifies the path it's mounted in the pod, which is prefixed with `/mnt` by VolSync - `repository` therefore gets mounted to `/mnt/repository` in the VolSync jobs, matching the value of `KOPIA_REPOSITORY`.
 
 > [!TIP]
 > `trigger.schedule` can be adjusted to a higher frequency depending on how often the backup should happen. In my own cluster a single daily backup, i.e. every day at 6:00 (`0 6 * * *`), is more than enough!
-> 
+>
 > Depending on how many backups are done it may make sense to reduce how many of these are kept in the Kopia repository. This can be configured in the `retain` section and will mean any backups exceeding the limit will be discarded on the next [Kopia Maintenance](#6-run-maintenance) run, e.g. when doing hourly backups it may be enough to retain just 1 daily backup - all but the latest backup will be discarded.
 
 You can check the logs of the last snapshot via the `ReplicationSource`'s Status section.
@@ -588,6 +598,7 @@ resources:
 <summary>Parameterized resources to use in component</summary>
 
 Templated `Secret` to give each app the correct credentials. `KOPIA_PASSWORD` must be set the same as described in [Configure Backups](#4-configure-backups).
+
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -599,6 +610,7 @@ stringData:
 ```
 
 Templated `PersistentVolumeClaim` for use in the app.
+
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -618,6 +630,7 @@ spec:
 ```
 
 Templated `ReplicationSource` to trigger backup for an app's PVC. `<NAS_HOSTNAME>` and `<NAS_PATH>` must be updated according to your environment, as done in [Configure Backups](#4-configure-backups).
+
 ```yaml
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
@@ -651,6 +664,7 @@ spec:
 ```
 
 Templated `ReplicationDestination` to restore an app's PVC in case of manual trigger or on a new machine.
+
 ```yaml
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationDestination
@@ -716,7 +730,7 @@ The value of `APP` (in this case `example`) is used as the name of the PVC and c
 
 Path in `components` must be relative from the location of the `Kustomization` with the full directory structure looking similar to the following:
 
-```
+```text
 kubernetes
 ├── apps
 │   ├── selfhosted
@@ -735,9 +749,10 @@ kubernetes
 ```
 
 This means the following resources will be created in the `selfhosted` namespace:
+
 - `PersistentVolumeClaim` called `example` backing a volume used in an app (not included here)
 - `Secret` called `example-volsync-secret` containing Kopia repository credentials
-- `ReplicationSource` called `example` storing a snapshot of the PVC with the same name 
+- `ReplicationSource` called `example` storing a snapshot of the PVC with the same name
 - `ReplicationDestination` called `example-bootstrap` to restore PVC
 
 ### Kopia UI
@@ -795,17 +810,21 @@ The `--without-password` argument is passed to the Kopia container so the Web UI
 ### Moving apps to different namespaces
 
 This setup enables easily moving apps from one namespace to another by leveraging the `sourceIdentity` field in the `ReplicationDestination`:
+
 1. Ensure `ReplicationSource` has created a backup in the old namespace
 2. Move app to new namespace with all resources and update `ReplicationDestination` to point to old namespace
-```yaml
-sourceIdentity:
-  sourceName: app
-  sourceNamespace: <OLD_NAMESPACE>
-```
+
+   ```yaml
+   sourceIdentity:
+     sourceName: app
+     sourceNamespace: <OLD_NAMESPACE>
+   ```
+
 3. PVC in new namespace will be populated from existing backup, even though the identity no longer matches
 4. Wait for `ReplicationSource` to create a new backup with the new identity
 5. Update `ReplicationDestination` to remove reference to old namespace
-```yaml
-sourceIdentity:
-  sourceName: app
-```
+
+   ```yaml
+   sourceIdentity:
+     sourceName: app
+   ```
