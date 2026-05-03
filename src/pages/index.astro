@@ -1,11 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Social from '../components/Social.astro';
+import BlogCard from '../components/BlogCard.astro';
 
 import { Image } from 'astro:assets';
 import profileImage from '../assets/profile.png';
 
+import { getCollection } from 'astro:content';
 import { AUTHOR } from '../consts';
+
+const latestPosts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+	.slice(0, 1);
 ---
 
 <BaseLayout>
@@ -24,4 +30,25 @@ import { AUTHOR } from '../consts';
 			<Social name="Linkedin" url="https://www.linkedin.com/in/christoph-muellner-at" icon="linkedin" />
 		</ul>
 	</section>
+
+	{latestPosts.length > 0 && (
+		<section class="mt-8">
+			<div class="flex justify-between items-center mb-4">
+				<h2 class="text-2xl font-bold">Latest Post</h2>
+				<a href="/blog" class="text-sm text-primary hover:underline">See all →</a>
+			</div>
+			<ul class="space-y-4">
+				{latestPosts.map(post => (
+					<li>
+						<BlogCard
+							title={post.data.title}
+							pubDate={post.data.pubDate}
+							tags={post.data.tags}
+							href={`/blog/${post.id}`}
+						/>
+					</li>
+				))}
+			</ul>
+		</section>
+	)}
 </BaseLayout>
